@@ -1,0 +1,40 @@
+{
+  "name": "talk-message-forms",
+  "version": "0.0.1",
+  "description": "The message structure and layout of Jianliao.com",
+  "main": "lib/index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --hot"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teambition/talk-message-forms.git"
+  },
+  "author": "Teambition",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/teambition/talk-message-forms/issues"
+  },
+  "homepage": "https://github.com/teambition/talk-message-forms#readme",
+  "dependencies": {
+    "react": "^0.13.3"
+  },
+  "devDependencies": {
+    "babel-core": "^5.8.9",
+    "babel-loader": "^5.3.2",
+    "cirru-script": "^0.2.3",
+    "coffee-loader": "^0.7.2",
+    "coffee-script": "^1.9.3",
+    "css-loader": "^0.15.6",
+    "del": "^1.2.0",
+    "gulp": "^3.9.0",
+    "gulp-coffee": "^2.3.1",
+    "less": "^2.5.1",
+    "less-loader": "^2.2.0",
+    "run-sequence": "^1.1.2",
+    "stir-template": "^0.1.4",
+    "style-loader": "^0.12.3",
+    "webpack": "^1.10.5",
+    "webpack-dev-server": "^1.10.1"
+  }
+}

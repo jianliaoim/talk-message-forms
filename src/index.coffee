@@ -1,0 +1,6 @@
+exports.File = require './file'
+exports.Image = require './image'
+exports.Quote = require './quote'
+exports.RTF = require './rtf'
+exports.Snippet = require './snippet'
+exports.Speech = require './speech'

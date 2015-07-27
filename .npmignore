@@ -1,0 +1,9 @@
+*.log
+gulpfile.coffee
+index.html
+template.cirru
+webpack.*
+
+/build
+/logs
+/src
