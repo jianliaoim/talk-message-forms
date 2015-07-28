@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/teambition/talk-message-forms#readme",
   "dependencies": {
+    "lodash": "^3.10.0",
     "react": "^0.13.3"
   },
   "devDependencies": {

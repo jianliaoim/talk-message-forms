@@ -12,7 +12,7 @@ env =
 gulp.task 'script', ->
   coffee = require('gulp-coffee')
   gulp
-  .src 'src/*.coffee'
+  .src 'src/**/*.coffee'
   .pipe coffee()
   .pipe gulp.dest('lib/')
 
@@ -30,7 +30,7 @@ gulp.task 'html', (cb) ->
 # clean up
 gulp.task 'del', (cb) ->
   del = require('del')
-  del [ 'build' ], cb
+  del [ 'build', 'lib' ], cb
 
 # build
 gulp.task 'webpack', (cb) ->
@@ -49,7 +49,7 @@ gulp.task 'rsync', (cb) ->
   opt =
     args: ['--verbose']
     deleteAll: true
-    dest: 'talk-ui:/teambition/server/talk-ui/react-lite-misc'
+    dest: 'talk-ui:/teambition/server/talk-ui/talk-message-forms'
     recursive: true
     src: ['index.html', 'build']
     ssh: true

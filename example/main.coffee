@@ -1,29 +1,24 @@
 require './demo.less'
 
+_     = require 'lodash'
 React = require 'react'
 
-data = require './data'
+messages = require './data'
 
-MessageFile = React.createFactory require('index').File
-MessageImage = React.createFactory require('index').Image
-MessageQuote = React.createFactory require('index').Quote
-MessageRTF = React.createFactory require('index').RTF
-MessageSnippet = React.createFactory require('index').Snippet
-MessageSpeech = React.createFactory require('index').Speech
+MessageForm = React.createFactory require '../src/index'
 
 div = React.createFactory 'div'
 
 App = React.createClass
   displayName: 'app'
 
+  renderMessages: ->
+    messages.map (message, index) =>
+      return MessageForm key: index, message: message
+
   render: ->
     div className: 'app',
-      MessageFile()
-      MessageImage()
-      MessageQuote()
-      MessageRTF()
-      MessageSnippet()
-      MessageSpeech()
+      @renderMessages()
 
 root  = React.createFactory App
 mount = document.getElementById('app')
