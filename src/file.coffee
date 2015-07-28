@@ -7,4 +7,9 @@ module.exports = React.createClass
 
   render: ->
     div className: 'message-file',
-      'message-file'
+      div className: 'attachment', onClick: @onClick,
+        div className: "square", style: {backgroundColor: 'orange'},
+          'S'
+        div className: 'name', '啊啊啊啊啊啊.sketch'
+        div className: 'size', '25.6M'
+        #@renderProgress()

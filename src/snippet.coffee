@@ -7,4 +7,5 @@ module.exports = React.createClass
 
   render: ->
     div className: 'message-snippet',
-      'message-snippet'
+      div className: 'title', 'Javascript'
+      div className: 'message', 'var a="b"'
