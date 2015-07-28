@@ -14,7 +14,9 @@ App = React.createClass
 
   renderMessages: ->
     messages.map (message, index) =>
-      return MessageForm key: index, message: message
+      div className: 'message',
+        div className: 'author', 'author'
+        MessageForm key: index, message: message
 
   render: ->
     div className: 'app',

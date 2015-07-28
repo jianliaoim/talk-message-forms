@@ -5,5 +5,3 @@ template.cirru
 webpack.*
 
 /build
-/logs
-/src
