@@ -1,0 +1,68 @@
+.message-file {
+  font-size:14px;
+  display: inline-block;
+
+
+  background-color: @bg-color;
+  width: 500px;
+  border-radius: 3px;
+  margin-top: 10px;
+  cursor: pointer;
+  box-sizing: border-box;
+
+
+  .attachment {
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 500px;
+    >.square {
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      line-height: 36px;
+      vertical-align: middle;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      text-align: center;
+      color: #fff;
+      background-color: #4eddbd;
+      overflow: hidden;
+      border-radius: 3px 0 0 3px;
+    }
+    >.name {
+      display: inline-block;
+      padding: 0 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color:#383838;
+      line-height: 36px;
+      height: 36px;
+      vertical-align: middle;
+    }
+    >.size {
+      display: inline-block;
+      line-height: 36px;
+      height: 36px;
+      vertical-align: middle;
+      color: #A6A6A6;
+    }
+    .progress {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+      background-color: @bg-color;
+    }
+
+  }
+
+}
