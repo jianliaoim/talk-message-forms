@@ -1,5 +1,8 @@
 require './demo.less'
 
+Highlight = require 'highlight.js/lib/highlight'
+Highlight.registerLanguage('javascript', require('highlight.js/lib/languages/javascript'));
+
 React = require 'react'
 
 messages = require './data'
@@ -15,12 +18,12 @@ App = React.createClass
 
   renderMessages: ->
     messages.map (message, index) =>
-      div className: 'message',
+      div key: index, className: 'message',
         div className: 'avatar',
           img src: message.avatar.img
         span className: 'avatar-name', message.avatar.name
         span className: 'create-time', message.createTime
-        MessageForm key: index, message: message
+        MessageForm message: message
 
   render: ->
     div className: 'app',

@@ -1,35 +1,39 @@
 .attachment-file {
-  @attachment-file-height: 36px;
+
+  @attachment-file-height: 40px;
+
+  #message-form-normalize .border-radius();
+  #message-form-normalize .box-clickable();
+  #message-form-normalize .margin();
 
   width: 100%;
-  margin-top: 10px;
-
-  border: 1px solid @border-level-1;
-  border-radius: 3px;
 
   line-height: @attachment-file-height;
 
   cursor: pointer;
 
-  &:hover {
-    background-color: @gray-bg-level-1;
-  }
-
   > .extension {
+
     float: left;
+
     height: @attachment-file-height;
-    width: @attachment-file-height;
+
+    padding: 0 15px;
+
     line-height: @attachment-file-height;
+
     text-align: center;
     vertical-align: middle;
+
   }
 
   > .name {
-    padding: 0 10px;
-    font-weight: bold;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+
+    #message-form-normalize .font-emphasize();
+    #message-form-normalize .text-overflow();
+
+    padding: 0 15px;
+
   }
 
 }

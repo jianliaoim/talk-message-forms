@@ -18,18 +18,35 @@ module.exports = React.createClass
   propTypes:
     message: T.object.isRequired
 
+  renderMessage: ->
+    if @props.message.message?.length > 0
+      div className: 'message-content', @props.message.message
+
   renderAttachments: ->
-    @props.message.attachments.map (attachment, index) =>
-      switch attachment.category
-        when 'file'    then FormFile    key: index, attachment: attachment
-        when 'image'   then FormImage   key: index, attachment: attachment
-        when 'quote'   then FormQuote   key: index, attachment: attachment
-        when 'rtf'     then FormRTF     key: index, attachment: attachment
-        when 'snippet' then FormSnippet key: index, attachment: attachment
-        when 'speech'  then FormSpeech  key: index, attachment: attachment
-        else                FormDefault key: index, attachment: attachment
+    if @props.message.attachments?.length > 0
+      div className: 'message-attachments',
+        @props.message.attachments.map (attachment, index) =>
+          switch attachment.category
+            when 'file'
+              FormFile
+                key: index
+                attachment: attachment
+            when 'image'
+              FormImage
+                key: index
+                attachment: attachment
+            when 'quote'
+              FormQuote   key: index, attachment: attachment
+            when 'rtf'
+              FormRTF     key: index, attachment: attachment
+            when 'snippet'
+              FormSnippet key: index, attachment: attachment
+            when 'speech'
+              FormSpeech  key: index, attachment: attachment
+            else
+              FormDefault key: index, attachment: attachment
 
   render: ->
     div className: 'message-forms',
-      div className: 'message-content', @props.message.message
-      div className: 'message-attachments', @renderAttachments()
+      @renderMessage()
+      @renderAttachments()

@@ -1,0 +1,81 @@
+#message-form-normalize {
+
+  .background-boundary() {
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .border-radius(@value: 3px) {
+    border-radius: @value;
+  }
+
+  .box() {
+    border: 1px solid #eee;
+  }
+
+  .box-clickable() {
+    background-color: transparent;
+    border: 1px solid #eee;
+
+    cursor: pointer;
+
+    &:hover {
+      background-color: #eee;
+    }
+  }
+
+  .box-modal() {
+    display: inline-block;
+
+    width: 100%;
+
+    padding: 15px;
+  }
+
+  .box-text() {
+    line-height: @message-attachments-line-height;
+  }
+
+  .font-emphasize() {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  .image-clickable() {
+
+    &:hover {
+      .opacity(0.9)
+    }
+
+  }
+
+  .margin(@value: 10px) {
+    margin-top: @value;
+  }
+
+  .paragraph-overflow(@value: 8) {
+    display: block;
+    display: -webkit-box;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    -webkit-line-clamp: @value;
+    -webkit-box-orient: vertical;
+  }
+
+  .tab-size(@value: 2) {
+    -webkit-tab-size: @value;
+    -moz-tab-size: @value;
+    -o-tab-size: @value;
+    tab-size: @value;
+  }
+
+  .text-overflow() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+}

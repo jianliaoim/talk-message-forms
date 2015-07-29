@@ -1,6 +1,51 @@
+.attachment-quote {
 
-// .message-quote {
+  #message-form-normalize .border-radius();
+  #message-form-normalize .box-clickable();
+  #message-form-normalize .box-modal();
+  #message-form-normalize .box-text();
+  #message-form-normalize .margin();
 
-//   .generic-text;
+  div + div {
+    margin-top: 5px;
+  }
 
-// }
+  &.is-clickable {
+
+    #message-form-normalize .box-clickable();
+
+    cursor: pointer;
+
+    &:hover {}
+
+  }
+
+  .title {
+
+    #message-form-normalize .font-emphasize();
+    #message-form-normalize .text-overflow();
+
+  }
+
+  .content {
+
+    #message-form-normalize .paragraph-overflow(@message-attachments-line-boundary);
+
+    max-height: @message-attachments-line-boundary * @message-attachments-line-height;
+
+  }
+
+  .picture {
+
+    #message-form-normalize .background-boundary();
+    #message-form-normalize .border-radius(2px);
+
+    display: block;
+
+    height: 100px;
+    width: 100px;
+
+  }
+
+
+}
