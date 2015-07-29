@@ -1,4 +1,5 @@
 require './demo.less'
+require 'volubile-ui/ui/index.less'
 
 React = require 'react'
 
