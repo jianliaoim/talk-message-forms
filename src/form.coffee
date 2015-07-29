@@ -30,5 +30,6 @@ module.exports = React.createClass
         else                FormDefault key: index, attachment: attachment
 
   render: ->
-    div className: 'message-form', @props.message.message,
-      @renderAttachments()
+    div className: 'message-forms',
+      div className: 'message-content', @props.message.message
+      div className: 'message-attachments', @renderAttachments()

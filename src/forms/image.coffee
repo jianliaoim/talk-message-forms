@@ -1,6 +1,7 @@
 React = require 'react'
 
 div = React.createFactory 'div'
+img = React.createFactory 'img'
 
 T = React.PropTypes
 
@@ -11,5 +12,6 @@ module.exports = React.createClass
     attachment: T.object.isRequired
 
   render: ->
-    div className: 'message-forms-image',
-      @props.attachment
+    div className: 'attachment-image',
+      div className: 'preview',
+        img src: @props.attachment.data.downloadUrl
