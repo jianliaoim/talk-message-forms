@@ -5,14 +5,14 @@
   #message-form-normalize .border-radius();
   #message-form-normalize .box-clickable();
   #message-form-normalize .margin();
+  #message-form-normalize .width();
 
-  width: 100%;
+  overflow: hidden;
 
   line-height: @attachment-file-height;
+  vertical-align: middle;
 
-  cursor: pointer;
-
-  > .extension {
+  > .file-type {
 
     float: left;
 
@@ -20,14 +20,15 @@
 
     padding: 0 15px;
 
+    color: @message-attachments-white;
+
     line-height: @attachment-file-height;
 
     text-align: center;
-    vertical-align: middle;
 
   }
 
-  > .name {
+  > .file-name {
 
     #message-form-normalize .font-emphasize();
     #message-form-normalize .text-overflow();

@@ -8,6 +8,7 @@ module.exports = React.createClass
   displayName: 'message-form-default'
 
   propTypes:
+    onClick:    T.func
     attachment: T.object.isRequired
 
   render: ->

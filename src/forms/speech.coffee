@@ -1,3 +1,12 @@
+# @attachment.category === 'speech'
+# @attachment.data
+#   fileKey: String
+#   fileName: String
+#   fileType: String
+#   fileSize: Number
+#   fileCategory: String
+#   duration: Number
+
 React = require 'react'
 
 LiteAudio = React.createFactory require 'react-lite-audio'
@@ -10,18 +19,14 @@ module.exports = React.createClass
   displayName: 'message-form-speech'
 
   propTypes:
-    # @attachment.category === 'speech'
-    # @attachment.data
-    #   fileKey: String
-    #   fileName: String
-    #   fileType: String
-    #   fileSize: Number
-    #   fileCategory: String
-    #   duration: Number
+    onClick:    T.func
     attachment: T.object.isRequired
 
+  onClick: ->
+    @props.onClick?()
+
   render: ->
-    div className: 'attachment-speech',
+    div className: 'attachment-speech', onClick: @onClick,
       LiteAudio
         source: @props.attachment.data.previewUrl
         duration: @props.attachment.data.duration

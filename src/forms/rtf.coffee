@@ -1,3 +1,8 @@
+# @attachment.category === 'rtf'
+# @attachment.data
+#   text:  String
+#   title: String
+
 React = require 'react'
 
 detect = require '../util/detect'
@@ -10,17 +15,19 @@ module.exports = React.createClass
   displayName: 'message-form-rtf'
 
   propTypes:
-    # @attachment.category === 'rtf'
-    # @attachment.data
-    #   title: String
-    #   text: String
+    onClick:    T.func
     attachment: T.object.isRequired
 
+  onClick: ->
+    @props.onClick?()
+
   renderTitle: ->
-    div className: 'title', @props.attachment.data.title
+    if @props.attachment.data.title?.length
+      div className: 'title', @props.attachment.data.title
 
   renderContent: ->
-    div className: 'content', @props.attachment.data.text
+    if @props.attachment.data.text?.length
+      div className: 'content', @props.attachment.data.text
 
   renderPicture: ->
     includeImage = detect.extractURL @props.attachment.data.text
@@ -30,11 +37,9 @@ module.exports = React.createClass
       style =
         backgroundImage: "url( #{ url } )"
       div className: 'picture', style: style
-    else
-      null
 
   render: ->
-    div className: 'attachment-rtf',
-      if @props.attachment.data.title? then @renderTitle() else null
-      if @props.attachment.data.text?.length > 0 then @renderContent() else null
+    div className: 'attachment-rtf', onClick: @onClick,
+      @renderTitle()
+      @renderContent()
       @renderPicture()

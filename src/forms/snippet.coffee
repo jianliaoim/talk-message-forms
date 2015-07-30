@@ -10,21 +10,24 @@ module.exports = React.createClass
   displayName: 'message-form-snippet'
 
   propTypes:
-    getHighlight: T.func
-    attachment: T.object.isRequired
+    getCodeType: T.func
+    onClick:     T.func
+    attachment:  T.object.isRequired
+
+  onClick: ->
+    @props.onClick?()
 
   renderTitle: ->
-    if @props.attachment.data.title.length > 0
+    if @props.attachment.data.title?.length
       div className: 'title', @props.attachment.data.title
 
   renderContent: ->
-    if @props.getHighlight?
-      codeType = @props.getHighlight @props.attachment.data.codeType
+    if @props.getCodeType?
+      codeType = @props.getCodeType @props.attachment.data.codeType
+    else if @props.attachment.data.codeType?.length
+      codeType = @props.attachment.data.codeType
     else
-      if @props.attachment.data.codeType?
-        codeType = @props.attachment.data.codeType
-      else
-        codeType = 'nohighlight'
+      codeType = 'nohighlight'
 
     div className: 'content',
       LiteCodeViewer
@@ -33,6 +36,6 @@ module.exports = React.createClass
           @props.attachment.data.text
 
   render: ->
-    div className: 'attachment-snippet',
+    div className: 'attachment-snippet', onClick: @onClick,
       @renderTitle()
       @renderContent()

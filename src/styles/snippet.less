@@ -1,29 +1,8 @@
 .attachment-snippet {
 
-  #message-form-normalize .border-radius();
-  #message-form-normalize .box-clickable();
-  #message-form-normalize .box-modal();
-  #message-form-normalize .box-text();
-  #message-form-normalize .margin();
+  @attachment-snippet-font-family: Menlo, "Ubuntu Mono", Consolas, "Courier New", monospace, sarif;
 
-  div + div {
-    margin-top: 5px;
-  }
-
-  .title {
-
-    #message-form-normalize .font-emphasize();
-    #message-form-normalize .text-overflow();
-
-  }
-
-  .content {
-
-    #message-form-normalize .paragraph-overflow(@message-attachments-line-boundary);
-
-    max-height: @message-attachments-line-boundary * @message-attachments-line-height;
-
-  }
+  .box-clickable-prototype();
 
   .pre {
 
@@ -31,6 +10,8 @@
 
     margin: 0;
     padding: 0;
+
+    font-family: @attachment-snippet-font-family;
 
   }
 

@@ -10,25 +10,21 @@
   }
 
   .box() {
-    border: 1px solid #eee;
+    border: 1px solid @message-attachments-gray;
   }
 
   .box-clickable() {
-    background-color: transparent;
-    border: 1px solid #eee;
+    border: 1px solid @message-attachments-gray;
 
     cursor: pointer;
 
     &:hover {
-      background-color: #eee;
+      background: @message-attachments-gray-hover;
     }
   }
 
   .box-modal() {
     display: inline-block;
-
-    width: 100%;
-
     padding: 15px;
   }
 
@@ -37,7 +33,6 @@
   }
 
   .font-emphasize() {
-    font-size: 16px;
     font-style: normal;
     font-weight: bold;
   }
@@ -76,6 +71,44 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+
+  .width() {
+    width: 100%;
+  }
+
+}
+
+.box-clickable-prototype() {
+
+  #message-form-normalize .border-radius(3px);
+  #message-form-normalize .box-clickable();
+  #message-form-normalize .box-modal();
+  #message-form-normalize .box-text();
+  #message-form-normalize .margin();
+  #message-form-normalize .width();
+
+  div + div {
+    margin-top: 10px;
+  }
+
+  .title {
+
+    #message-form-normalize .font-emphasize();
+    #message-form-normalize .text-overflow();
+
+    font-size: 16px;
+
+  }
+
+  .content {
+
+    #message-form-normalize .paragraph-overflow(@message-attachments-line-boundary);
+
+    max-height: @message-attachments-line-boundary * @message-attachments-line-height;
+
+    font-size: 14px;
+
   }
 
 }

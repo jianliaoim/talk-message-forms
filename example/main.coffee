@@ -1,3 +1,4 @@
+require 'volubile-ui/ui/index.less'
 require './demo.less'
 
 Highlight = require 'highlight.js/lib/highlight'

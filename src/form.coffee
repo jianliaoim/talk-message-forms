@@ -16,7 +16,13 @@ module.exports = React.createClass
   displayName: 'message-form'
 
   propTypes:
-    message: T.object.isRequired
+    onFileClick:    T.func
+    onImageClick:   T.func
+    onQuoteClick:   T.func
+    onRTFClick:     T.func
+    onSnippetClick: T.func
+    onSpeechClick:  T.func
+    message:        T.object.isRequired
 
   renderMessage: ->
     if @props.message.message?.length > 0
@@ -31,20 +37,37 @@ module.exports = React.createClass
               FormFile
                 key: index
                 attachment: attachment
+                onClick: if @props.onFileClick? then @props.onFileClick else (->)
             when 'image'
               FormImage
                 key: index
                 attachment: attachment
+                onClick: if @props.onImageClick? then @props.onImageClick else (->)
             when 'quote'
-              FormQuote   key: index, attachment: attachment
+              FormQuote
+                key: index
+                attachment: attachment
+                onClick: if @props.onQuoteClick? then @props.onQuoteClick else (->)
             when 'rtf'
-              FormRTF     key: index, attachment: attachment
+              FormRTF
+                key: index
+                attachment: attachment
+                onClick: if @props.onRTFClick? then @props.onRTFClick else (->)
             when 'snippet'
-              FormSnippet key: index, attachment: attachment
+              FormSnippet
+                key: index
+                attachment: attachment
+                onClick: if @props.onSnippetClick? then @props.onSnippetClick else (->)
             when 'speech'
-              FormSpeech  key: index, attachment: attachment
+              FormSpeech
+                key: index
+                attachment: attachment
+                onClick: if @props.onSpeechClick? then @props.onSpeechClick else (->)
             else
-              FormDefault key: index, attachment: attachment
+              FormDefault
+                key: index
+                attachment: attachment
+                onClick: (->)
 
   render: ->
     div className: 'message-forms',
