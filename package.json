@@ -10,7 +10,7 @@
     "lesshat": "^3.0.2",
     "lodash": "^3.10.0",
     "react": "^0.13.3",
-    "react-lite-audio": "0.0.8",
+    "react-lite-audio": "0.1.1",
     "react-lite-coder": "0.0.1",
     "volubile-ui": "0.0.9"
   },
