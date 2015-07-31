@@ -13,7 +13,7 @@ div = React.createFactory 'div'
 T = React.PropTypes
 
 module.exports = React.createClass
-  displayName: 'message-form'
+  displayName: 'message-forms'
 
   propTypes:
     onFileClick:    T.func
@@ -23,10 +23,6 @@ module.exports = React.createClass
     onSnippetClick: T.func
     onSpeechClick:  T.func
     message:        T.object.isRequired
-
-  renderMessage: ->
-    if @props.message.message?.length > 0
-      div className: 'message-content', @props.message.message
 
   renderAttachments: ->
     if @props.message.attachments?.length > 0
@@ -71,5 +67,4 @@ module.exports = React.createClass
 
   render: ->
     div className: 'message-forms',
-      @renderMessage()
       @renderAttachments()

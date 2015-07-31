@@ -1,9 +1,12 @@
+.DS_Store
+.lock-wscript
 *.log
-index.html
+*.swp
+
+.idea
+
+/index.html
 
 /build
 /lib
-/logs
 /node_modules
-
-.ideas

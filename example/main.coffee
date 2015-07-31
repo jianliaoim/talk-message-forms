@@ -24,7 +24,8 @@ App = React.createClass
           img src: message.avatar.img
         span className: 'avatar-name', message.avatar.name
         span className: 'create-time', message.createTime
-        MessageForm message: message
+        div className: 'content', message.message,
+          MessageForm message: message
 
   render: ->
     div className: 'app',

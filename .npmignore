@@ -1,7 +1,9 @@
-*.log
-gulpfile.coffee
-index.html
-template.cirru
-webpack.*
+.idea
+
+/index.html
+/gulpfile.coffee
+/template.cirru
+/webpack.*
 
 /build
+/example
