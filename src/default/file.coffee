@@ -1,16 +1,3 @@
-# @attachment.category === 'file'
-# @attachment.data
-#   fileKey:      String
-#   fileName:     String
-#   fileType:     String
-#   fileSize:     Number
-#   fileCategory: String
-#   imageWidth:   Number
-#   imageHeight:  Number
-#   downloadUrl:  String
-#   thumbnailUrl: String
-#   previewUrl:   String
-
 React = require 'react'
 
 div = React.createFactory 'div'
@@ -21,11 +8,11 @@ module.exports = React.createClass
   displayName: 'message-form-file'
 
   propTypes:
-    getColor:   T.func
-    onClick:    T.func
+    getColor: T.func
+    onClick: T.func
     attachment: T.object.isRequired
-    eventBus:   T.object
-    colors:     T.oneOfType([ T.array, T.object ])
+    eventBus: T.object
+    colors: T.oneOfType([ T.array, T.object ])
 
   getInitialState: ->
     progress: 0
@@ -44,13 +31,13 @@ module.exports = React.createClass
 
   onProgress: (progress, data) ->
     {fileName, fileSize} = data.file
-    if (fileName is @props.data.fileName) and (fileSize is @props.data.fileSize)
+    if (fileName is @props.attachment.data.fileName) and (fileSize is @props.attachment.data.fileSize)
       if @isMounted()
         @setState progress: progress
 
   renderProgress: ->
     if @props.eventBus?
-      unless @props.data.fileKey?
+      unless @props.attachment.data.fileKey?
         div className: 'progress', style: width: "#{@state.progress * 100}%"
 
   renderFileType: ->
@@ -72,6 +59,8 @@ module.exports = React.createClass
   renderFileName: ->
     if @props.attachment.data.fileName?.length
       div className: 'file-name', @props.attachment.data.fileName
+    else
+      div className: 'file-name', '?'
 
   render: ->
     div className: 'attachment-file', onClick: @onClick,
