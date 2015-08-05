@@ -41,10 +41,10 @@
     "start": "webpack-dev-server --hot"
   },
   "keywords": [
-    "message",
     "message-forms",
     "react",
-    "jianliao.com",
+    "react-component",
+    "react-lite",
     "teambition"
   ],
   "author": "Teambition",
