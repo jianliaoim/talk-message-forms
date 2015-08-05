@@ -36,6 +36,6 @@ module.exports = React.createClass
           @props.attachment.data.text
 
   render: ->
-    div className: 'attachment-snippet', onClick: @onClick,
+    div className: 'attachment attachment-snippet', onClick: @onClick,
       @renderTitle()
       @renderContent()

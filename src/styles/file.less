@@ -4,8 +4,8 @@
 
   #message-form-normalize .border-radius();
   #message-form-normalize .box-clickable();
-  #message-form-normalize .margin();
-  #message-form-normalize .width();
+
+  position: relative;
 
   overflow: hidden;
 
@@ -17,8 +17,9 @@
     float: left;
 
     height: @attachment-file-height;
+    min-width: @attachment-file-height;
 
-    padding: 0 15px;
+    padding: 0 5px;
 
     color: @message-attachments-white;
 
@@ -35,6 +36,22 @@
 
     padding: 0 15px;
 
+  }
+
+  > .progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: @attachment-file-height;
+
+    background-color: rgba(236, 194, 194, 0.76);
+
+    -webkit-transition: width 400ms;
+    -moz-transition: width 400ms;
+    -ms-transition: width 400ms;
+    -o-transition: width 400ms;
+    transition: width 400ms;
   }
 
 }

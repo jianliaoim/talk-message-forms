@@ -16,6 +16,6 @@ module.exports = React.createClass
     @props.onClick?()
 
   render: ->
-    div className: 'attachment-image', onClick: @onClick,
+    div className: 'attachment attachment-image', onClick: @onClick,
       div className: 'preview',
         img src: @props.attachment.data.thumbnailUrl

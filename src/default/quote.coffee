@@ -1,14 +1,3 @@
-# @attachment.category === 'quote'
-# @attachment.data
-#   category:      String
-#   userAvatarUrl: String
-#   userName:      String
-#   title:         String
-#   text:          String
-#   imageUrl:      String
-#   redirectUrl:   String
-#   faviconUrl:    String
-
 React = require 'react'
 
 div = React.createFactory 'div'
@@ -34,14 +23,21 @@ module.exports = React.createClass
       div className: 'content', @props.attachment.data.text
 
   renderPicture: ->
-    if @props.attachment.data.thumbnailPicUrl?
+    if @props.attachment.data.imageUrl?
+      url = @props.attachment.data.imageUrl
+    else if @props.attachment.data.thumbnailPicUrl?
       url = @props.attachment.data.thumbnailPicUrl
-      style =
-        backgroundImage: "url( #{ url } )"
-      div className: 'picture', style: style
+    else
+      url = ''
+
+    return unless url isnt ''
+
+    style =
+      backgroundImage: "url( #{ url } )"
+    div className: 'picture', style: style
 
   render: ->
-    div className: 'attachment-quote', onClick: @onClick,
+    div className: 'attachment attachment-quote', onClick: @onClick,
       @renderTitle()
       @renderContent()
       @renderPicture()
