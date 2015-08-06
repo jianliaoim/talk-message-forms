@@ -1,17 +1,19 @@
-config = require('./webpack.config')
-fs = require('fs')
-webpack = require('webpack')
+config = require './webpack.config'
+fs = require 'fs'
+webpack = require 'webpack'
 
 module.exports =
   entry:
-    main: [ './example/main' ]
+    vendor: []
+    main: ['./example/main']
   output:
     path: 'build/'
-    filename: '[name].[chunkhash].js'
+    filename: '[name].[chunkhash:8].js'
     publicPath: './build/'
   resolve: config.resolve
   module: config.module
   plugins: [
+    new webpack.optimize.CommonsChunkPlugin 'vendor', 'vendor.[chunkhash:8].js'
     new (webpack.optimize.UglifyJsPlugin)(sourceMap: false)
     ->
       @plugin 'done', (stats) ->

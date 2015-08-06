@@ -1,9 +1,5 @@
-.DS_Store
-.lock-wscript
+*.idea
 *.log
-*.swp
-
-.idea
 
 /index.html
 

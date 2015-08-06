@@ -1,4 +1,5 @@
 React = require 'react'
+xss = require 'xss'
 
 div = React.createFactory 'div'
 
@@ -41,27 +42,26 @@ module.exports = React.createClass
         @setState progress: progress
 
   renderProgress: ->
-    return unless @props.eventBus
+    return if @props.eventBus?
     unless @props.attachment.data.fileKey?
       div className: 'progress', style: width: "#{@state.progress * 100}%"
 
   renderFileType: ->
+    return if @props.attachment.data.fileType?
+    fileType = if @props.attachment.data.fileType.length then @props.attachment.data.fileType else '?'
     style =
       backgroundColor: @getColor()
-
-    if @props.attachment.data.fileType?.length
-      div className: 'file-type', style: style, @props.attachment.data.fileType
-    else
-      div className: 'file-type', style: style, '?'
+    div className: 'file-type', style: style, fileType
 
   renderFileName: ->
-    if @props.attachment.data.fileName?.length
-      div className: 'file-name', @props.attachment.data.fileName
-    else
-      div className: 'file-name', '?'
+    return if @props.attachment.data.fileName?
+    fileName = if @props.attachment.data.fileName.length then @props.attachment.data.fileName else '?'
+    html =
+      __html: xss fileName
+    div className: 'file-name', dangerouslySetInnerHTML: html
 
   render: ->
-    div className: 'attachment attachment-file', onClick: @onClick,
+    div className: 'attachment-file', onClick: @onClick,
       @renderFileType()
       @renderFileName()
       @renderProgress()

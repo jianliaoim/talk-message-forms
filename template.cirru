@@ -2,11 +2,10 @@ var
   stir $ require :stir-template
 
 var
-  (object~ html head title body meta script link div a span) stir
+  ({}~ html head title body meta script link div a span) stir
 
 var
-  line $ \ (text)
-    return $ div null text
+  line $ \ (text) (div ({} (:className :line)) text)
 
 = module.exports $ \ (data)
   return $ stir.render
@@ -17,16 +16,15 @@ var
         meta $ object (:charset :utf-8)
         link $ object (:rel :icon)
           :href :http://tp4.sinaimg.cn/5592259015/180/5725970590/1
+        script $ object (:src data.vendor) (:defer true)
         script $ object (:src data.main) (:defer true)
       body null
-        div
-          object (:class :intro)
-          line ":The Message Structure and Style of Jianliao.com"
+        div ({} (:class :intro))
+          div ({} (:class :title)) ":The Message Structure and Style of jianliao.com."
           div null
             span null ":Read more at "
             a
-              object (:href :http://github.com/teambition/talk-message-forms)
-              , :http://github.com/teambition/talk-message-forms
+              {} (:href :http://github.com/teambition/talk-message-forms)
+              , :github.com/teambition/talk-message-forms
             span null :.
-        div
-          object (:id :app)
+        div ({} (:id :example))

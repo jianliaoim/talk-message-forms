@@ -1,0 +1,55 @@
+@import "./style/reset";
+@import "./style/vars";
+@import "./style/common";
+
+@import "~react-lite-audio/src/style.less";
+@import "~react-lite-coder/src/index.less";
+
+//example
+
+.app {
+  width: 50%;
+  margin: 0 auto;
+  text-align: left;
+
+  .message {
+    margin: 15px 0;
+    overflow: hidden;
+    zoom: 1;
+
+    .avatar {
+      float: left;
+      height: 40px;
+      width: 40px;
+      margin-right: 10px;
+
+      img {
+        max-height: 100%;
+        max-width: 100%;
+        border-radius: 50%;
+      }
+    }
+
+    .avatar-name {
+      margin-right: 10px;
+      font-size: 1em;
+    }
+
+    .create-time {
+      color: #a9a9a9;
+      font-size: 0.8em;
+    }
+
+    .content {
+      overflow: hidden;
+      zoom: 1;
+
+      font-size: 0.9em;
+    }
+
+  }
+}
+
+// style
+
+@import "../src/index.less";

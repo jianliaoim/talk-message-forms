@@ -1,8 +1,4 @@
-require 'volubile-ui/ui/index.less'
-require './demo.less'
-
-Highlight = require 'highlight.js/lib/highlight'
-Highlight.registerLanguage('javascript', require('highlight.js/lib/languages/javascript'));
+require './main.less'
 
 React = require 'react'
 
@@ -14,24 +10,34 @@ div  = React.createFactory 'div'
 img  = React.createFactory 'img'
 span = React.createFactory 'span'
 
+T = React.PropTypes
+
+Message = React.createFactory React.createClass
+  displayName: 'message'
+
+  propTypes:
+    message: T.object.isRequired
+
+  render: ->
+    div className: 'message',
+      div className: 'avatar',
+        img src: @props.message.avatar.img
+      span className: 'avatar-name', @props.message.avatar.name
+      span className: 'create-time', @props.message.createTime
+      div className: 'content', @props.message.message,
+
 App = React.createClass
   displayName: 'app'
 
   renderMessages: ->
     messages.map (message, index) =>
-      div key: index, className: 'message',
-        div className: 'avatar',
-          img src: message.avatar.img
-        span className: 'avatar-name', message.avatar.name
-        span className: 'create-time', message.createTime
-        div className: 'content', message.message,
-          MessageForm message: message
+      Message key: index, message: message
 
   render: ->
     div className: 'app',
       @renderMessages()
 
 root  = React.createFactory App
-mount = document.getElementById('app')
+mount = document.getElementById('example')
 
 React.render root(), mount
