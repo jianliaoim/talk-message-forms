@@ -39,7 +39,7 @@ module.exports = React.createClass
       div className: 'picture', style: style
 
   render: ->
-    div className: 'attachment attachment-rtf', onClick: @onClick,
+    div className: 'attachment-rtf', onClick: @onClick,
       @renderTitle()
       @renderContent()
       @renderPicture()

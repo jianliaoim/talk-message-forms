@@ -37,7 +37,7 @@ module.exports = React.createClass
     div className: 'picture', style: style
 
   render: ->
-    div className: 'attachment attachment-quote', onClick: @onClick,
+    div className: 'attachment-quote', onClick: @onClick,
       @renderTitle()
       @renderContent()
       @renderPicture()

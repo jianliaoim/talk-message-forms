@@ -26,7 +26,7 @@ module.exports = React.createClass
     @props.onClick?()
 
   render: ->
-    div className: 'attachment attachment-speech', onClick: @onClick,
+    div className: 'attachment-speech', onClick: @onClick,
       LiteAudio
         source: @props.attachment.data.previewUrl
         duration: @props.attachment.data.duration

@@ -2,6 +2,7 @@ React = require 'react'
 
 div = React.createFactory 'div'
 img = React.createFactory 'img'
+span = React.createFactory 'span'
 
 T = React.PropTypes
 
@@ -9,24 +10,22 @@ module.exports = React.createClass
   displayName: 'message-form-image'
 
   propTypes:
-    onClick:    T.func
+    onClick: T.func
     attachment: T.object.isRequired
 
   componentDidMount: ->
     @getImageProps()
 
   getImageProps: ->
-    @imageHeight = @props.attachment.imageHeight
-    @imageWidth = @props.attachment.imageWidth
+    @imageHeight = @props.attachment.data.imageHeight
+    @imageWidth = @props.attachment.data.imageWidth
     @maxWidth = 240
 
   onClick: ->
     @props.onClick?()
 
   render: ->
-    return if not @imageHeight or not @imageWidth
-
-    thumbnailUrl = @props.attachment.thumbnailUrl
+    thumbnailUrl = @props.attachment.data.thumbnailUrl
 
     if @imageWidth >= @imageHeight and @imageWidth >= @maxWidth
       height = Math.round ( @imageHeight / ( @imageWidth / @maxWidth ) )

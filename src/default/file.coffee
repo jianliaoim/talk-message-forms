@@ -42,19 +42,19 @@ module.exports = React.createClass
         @setState progress: progress
 
   renderProgress: ->
-    return if @props.eventBus?
+    return if not @props.eventBus?
     unless @props.attachment.data.fileKey?
       div className: 'progress', style: width: "#{@state.progress * 100}%"
 
   renderFileType: ->
-    return if @props.attachment.data.fileType?
+    return if not @props.attachment.data.fileType?
     fileType = if @props.attachment.data.fileType.length then @props.attachment.data.fileType else '?'
     style =
       backgroundColor: @getColor()
     div className: 'file-type', style: style, fileType
 
   renderFileName: ->
-    return if @props.attachment.data.fileName?
+    return if not @props.attachment.data.fileName?
     fileName = if @props.attachment.data.fileName.length then @props.attachment.data.fileName else '?'
     html =
       __html: xss fileName
