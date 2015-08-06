@@ -18,8 +18,8 @@ module.exports = React.createClass
     @props.onClick?()
 
   renderTitle: ->
-    if @props.attachment.data.title?.length
-      div className: 'title', @props.attachment.data.title
+    return if not @props.attachment.data.title?.length
+    div className: 'title', @props.attachment.data.title
 
   renderContent: ->
     if @props.getCodeType?
@@ -28,12 +28,13 @@ module.exports = React.createClass
       codeType = @props.attachment.data.codeType
     else
       codeType = 'nohighlight'
+    text = @props.attachment.data.text
 
     div className: 'content',
       LiteCodeViewer
         name: 'attachment-snippet'
-        mode: codeType,
-          @props.attachment.data.text
+        codeType: codeType,
+        text: text
 
   render: ->
     div className: 'attachment-snippet', onClick: @onClick,
