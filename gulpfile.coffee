@@ -44,7 +44,7 @@ gulp.task 'html', (cb) ->
 
 gulp.task 'del', (cb) ->
   del = require 'del'
-  del ['build', 'lib'], cb
+  del ['build/**/*', 'lib/**/*'], cb
 
 gulp.task 'webpack', (cb) ->
   if env.dev
