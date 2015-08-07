@@ -1,3 +1,5 @@
+require 'react-lite-coder/src/index.less';
+
 exports.File = require './default/file'
 exports.Image = require './default/image'
 exports.Quote = require './default/quote'
