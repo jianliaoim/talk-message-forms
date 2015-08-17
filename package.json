@@ -9,8 +9,9 @@
     "highlight.js": "^8.7.0",
     "lesshat": "^3.0.2",
     "react": "^0.13.3",
-    "react-lite-audio": "0.1.1",
+    "react-lite-audio": "^0.1.1",
     "react-lite-coder": "^0.0.4",
+    "react-lite-misc": "^0.0.7",
     "xss": "^0.2.6"
   },
   "devDependencies": {
@@ -20,7 +21,7 @@
     "cirru-script": "^0.2.3",
     "coffee-loader": "^0.7.2",
     "coffee-script": "^1.9.3",
-    "css-loader": "^0.15.6",
+    "css-loader": "^0.16.0",
     "del": "^1.2.0",
     "extract-text-webpack-plugin": "^0.8.2",
     "file-loader": "^0.8.4",

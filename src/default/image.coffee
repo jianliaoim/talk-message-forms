@@ -12,9 +12,20 @@ module.exports = React.createClass
   propTypes:
     onClick: T.func
     attachment: T.object.isRequired
+    eventBus: T.object
+
+  getInitialState: ->
+    inProgress: false
 
   componentDidMount: ->
     @getImageProps()
+    if @props.eventBus?
+      if not @props.attachment.data.fileKey?
+        @props.eventBus.addListener 'uploader/progress', @onProgress
+
+  componentWillUnoumt: ->
+    if @props.eventBus?
+      eventBus.removeListener 'uploader/progress', @onProgress
 
   getImageProps: ->
     @imageHeight = @props.attachment.data.imageHeight
@@ -23,6 +34,17 @@ module.exports = React.createClass
 
   onClick: ->
     @props.onClick?()
+
+  onProgress: (progress, data) ->
+    {fileName, fileSize} = data
+    if (fileName is @props.attachment.data.fileName) and (fileSize is @props.attachment.data.fileSize)
+      if @isMounted()
+        @setState progress: progress
+
+  renderProgress: ->
+    return if not @props.eventBus?
+    if not @props.attachment.data.fileKey?
+      div className: 'progress', style: width: "#{@state.progress * 100}%"
 
   render: ->
     thumbnailUrl = @props.attachment.data.thumbnailUrl
