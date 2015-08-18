@@ -12,5 +12,5 @@ module.exports = React.createClass
     attachment: T.object.isRequired
 
   render: ->
-    div className: 'message-forms-default',
+    div className: 'attachment-default',
       @props.attachment
