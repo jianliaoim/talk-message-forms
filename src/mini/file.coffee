@@ -41,24 +41,18 @@ module.exports = React.createClass
         div className: 'progress', style: width: "#{@state.progress * 100}%"
 
   renderFileType: ->
-    if @props.getColor?
-      color = @props.getColor @props.attachment.data.fileType
-    else if @props.colors?.length
-      color = @props.colors[@props.attachment.data.fileType] or @props.colors['default']
-    else
-      color = '#7986CB'
-
     style =
-      backgroundColor: color
+      if @props.getColor?
+        backgroundColor: @props.getColor @props.attachment.data.fileType
+      else if @props.colors?.length
+        backgroundColor: @props.colors[@props.attachment.data.fileType] or @props.colors['default']
+      else
+        backgroundColor: '#7986CB'
 
-    if @props.attachment.data.fileType?.length
-      div className: 'file-type', style: style, @props.attachment.data.fileType
-    else
-      div className: 'file-type', style: style, '?'
+    div className: 'file-type', style: style, if @props.attachment.data.fileType?.length then @props.attachment.data.fileType else '?'
 
   renderFileName: ->
-    if @props.attachment.data.fileName?.length
-      div className: 'file-name', @props.attachment.data.fileName
+    div className: 'file-name', if @props.attachment.data.fileName?.length then @props.attachment.data.fileName else '?'
 
   render: ->
     div className: 'attachment-file', onClick: @onClick,

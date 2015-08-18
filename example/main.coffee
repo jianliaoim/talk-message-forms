@@ -4,7 +4,7 @@ React = require 'react'
 
 messages = require './data'
 
-MessageForm = React.createFactory require '../src/index'
+MessageFormImage = React.createFactory require('../src/index').Image
 
 div  = React.createFactory 'div'
 img  = React.createFactory 'img'
@@ -18,6 +18,13 @@ Message = React.createFactory React.createClass
   propTypes:
     message: T.object.isRequired
 
+  renderAttachments: ->
+    attachments = @props.message.attachments
+    attachments.map (attachment, index) =>
+      switch attachment.category
+        when 'image'
+          MessageFormImage key: index, attachment: attachment
+
   render: ->
     div className: 'message',
       div className: 'avatar',
@@ -25,6 +32,7 @@ Message = React.createFactory React.createClass
       span className: 'avatar-name', @props.message.avatar.name
       span className: 'create-time', @props.message.createTime
       div className: 'content', @props.message.message,
+        @renderAttachments()
 
 App = React.createClass
   displayName: 'app'

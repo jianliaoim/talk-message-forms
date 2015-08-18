@@ -23,17 +23,10 @@ module.exports = React.createClass
       div className: 'content', @props.attachment.data.text
 
   renderPicture: ->
-    if @props.attachment.data.imageUrl?
-      url = @props.attachment.data.imageUrl
-    else if @props.attachment.data.thumbnailPicUrl?
-      url = @props.attachment.data.thumbnailPicUrl
-    else
-      url = ''
-
-    return unless url isnt ''
-
+    return if not @props.attachment.data.imageUrl?.length
     style =
-      backgroundImage: "url( #{ url } )"
+      if @props.attachment.data.imageUrl isnt ''
+        backgroundImage: "url(#{ @props.attachment.data.imageUrl })"
     div className: 'picture', style: style
 
   render: ->

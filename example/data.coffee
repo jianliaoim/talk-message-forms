@@ -49,7 +49,9 @@ module.exports = [
   attachments: [
     category: 'image'
     data:
-      previewUrl: "//api.adorable.io/avatars/250/image"
+      imageHeight: 400
+      imageWidth: 400
+      thumbnailUrl: "https://striker.teambition.net/thumbnail/1107096fa36ab2b0a9c91e0b02b626c83efd/w/240/h/240"
   ]
   isSystem: false
 ,
@@ -61,7 +63,9 @@ module.exports = [
   attachments: [
     category: 'image'
     data:
-      previewUrl: "//api.adorable.io/avatars/250/image"
+      imageHeight: 400
+      imageWidth: 400
+      thumbnailUrl: "https://striker.teambition.net/thumbnail/1107096fa36ab2b0a9c91e0b02b626c83efd/w/240/h/240"
   ]
   isSystem: false
 ,
@@ -133,7 +137,9 @@ module.exports = [
   ,
     category: 'image'
     data:
-      previewUrl: "//api.adorable.io/avatars/250/image"
+      imageHeight: 600
+      imageWidth: 400
+      thumbnailUrl: "https://striker.teambition.net/thumbnail/1107096fa36ab2b0a9c91e0b02b626c83efd/w/240/h/240"
   ,
     category: 'speech'
     data:

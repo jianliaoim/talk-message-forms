@@ -1,4 +1,5 @@
 React = require 'react'
+xss = require 'xss'
 
 LiteCodeViewer = React.createFactory require('react-lite-coder').CodeViewer
 

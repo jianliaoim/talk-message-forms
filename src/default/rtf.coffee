@@ -1,11 +1,7 @@
-# @attachment.category === 'rtf'
-# @attachment.data
-#   text:  String
-#   title: String
-
 React = require 'react'
 
 detect = require '../util/detect'
+format = require '../util/format'
 
 div = React.createFactory 'div'
 
@@ -26,8 +22,10 @@ module.exports = React.createClass
       div className: 'title', @props.attachment.data.title
 
   renderContent: ->
-    if @props.attachment.data.text?.length
-      div className: 'content', @props.attachment.data.text
+    return if not @props.attachment.data.text?.length
+    text = format.htmlAsText(@props.attachment.data.text).replace(/\n+/g, ' ').trim()
+    return if not text.length
+    div className: 'content', text
 
   renderPicture: ->
     includeImage = detect.extractURL @props.attachment.data.text

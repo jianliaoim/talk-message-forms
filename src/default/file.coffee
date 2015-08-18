@@ -27,7 +27,7 @@ module.exports = React.createClass
       eventBus.removeListener 'uploader/progress', @onProgress
 
   getColor: ->
-    if @props.color?.length
+    if @props.color? isnt ''
       color = @props.color
     else
       color = '#7986CB'
@@ -44,7 +44,10 @@ module.exports = React.createClass
   renderProgress: ->
     return if not @props.eventBus?
     unless @props.attachment.data.fileKey?
-      div className: 'progress', style: width: "#{@state.progress * 100}%"
+      style =
+        backgroundColor: @getColor()
+        width: "#{@state.progress * 100}%"
+      div className: 'progress', style: style
 
   renderFileType: ->
     return if not @props.attachment.data.fileType?
