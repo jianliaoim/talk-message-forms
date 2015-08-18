@@ -39,6 +39,7 @@
     "webpack-dev-server": "^1.10.1"
   },
   "scripts": {
+    "prepublish": "gulp script",
     "build": "gulp build && gulp script",
     "dev": "gulp html && webpack-dev-server --hot",
     "test": ""
