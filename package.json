@@ -1,6 +1,6 @@
 {
   "name": "talk-message-forms",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "The Message Structure and Layout of jianliao.com",
   "main": "lib/index.js",
   "dependencies": {
@@ -12,6 +12,7 @@
     "react-lite-audio": "^0.1.1",
     "react-lite-coder": "^0.0.4",
     "react-lite-misc": "^0.0.7",
+    "teambition-icon-fonts": "^0.72.11",
     "xss": "^0.2.6"
   },
   "devDependencies": {

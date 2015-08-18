@@ -51,7 +51,7 @@ module.exports = [
     data:
       imageHeight: 400
       imageWidth: 400
-      thumbnailUrl: "https://striker.teambition.net/thumbnail/1107096fa36ab2b0a9c91e0b02b626c83efd/w/240/h/240"
+      thumbnailUrl: "//adorable.io/avatars/500/file-with-message"
   ]
   isSystem: false
 ,

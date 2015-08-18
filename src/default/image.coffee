@@ -19,6 +19,10 @@ module.exports = React.createClass
   onClick: ->
     @props.onClick?()
 
+  renderError: ->
+    div className: 'error',
+      span className: 'icon icon-put-back'
+
   render: ->
     thumbnailUrl = @props.attachment.data.thumbnailUrl or @props.attachment.data.previewUrl
     return if not thumbnailUrl.length
@@ -33,6 +37,6 @@ module.exports = React.createClass
     else
       src = thumbnailUrl.replace('h/200', "h/#{ imageHeight }").replace('w/200', "w/#{ imageWidth }")
 
-    div className: 'attachment-image', onClick: @onClick,
+    div className: 'attachment-image',
       span className: 'preview',
-        LiteImageLoading onClick: (->), src: src, errMsg: @props.errorMessage or 'x'
+        LiteImageLoading onClick: @onClick, src: src, errMsg: @renderError()
