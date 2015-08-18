@@ -1,6 +1,6 @@
 {
   "name": "talk-message-forms",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "The Message Structure and Layout of jianliao.com",
   "main": "lib/index.js",
   "dependencies": {
@@ -40,7 +40,8 @@
   },
   "scripts": {
     "build": "gulp build && gulp script",
-    "dev": "gulp html && webpack-dev-server --hot"
+    "dev": "gulp html && webpack-dev-server --hot",
+    "test": ""
   },
   "keywords": [
     "message-forms",
