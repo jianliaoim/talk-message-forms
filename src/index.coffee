@@ -1,5 +1,6 @@
+require 'react-lite-coder/src/index.less'
+require 'react-lite-misc/src/index.less'
 require 'teambition-icon-fonts/css/teambition-ui-icons.css'
-require 'react-lite-coder/src/index.less';
 
 exports.File = require './default/file'
 exports.Image = require './default/image'

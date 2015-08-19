@@ -37,14 +37,15 @@ gulp.task 'html', (cb) ->
   assets = undefined
   unless env.dev
     assets = require './build/assets.json'
-    env.main = './build/' + assets.main
+    env.main = './build/' + assets.main[0]
     env.vendor = './build/' + assets.vendor
+    env.style = './build/' + assets.main[1]
 
   fs.writeFile 'index.html', html(env), cb
 
 gulp.task 'del', (cb) ->
-  del = require 'del'
-  del ['build/**/*', 'lib/**/*'], cb
+  del = require('del')
+  del [ 'build/' ], cb
 
 gulp.task 'webpack', (cb) ->
   if env.dev

@@ -11,7 +11,7 @@
     "react": "^0.13.3",
     "react-lite-audio": "^0.1.1",
     "react-lite-coder": "^0.0.4",
-    "react-lite-misc": "^0.0.7",
+    "react-lite-misc": "file:../react-lite-misc",
     "teambition-icon-fonts": "^0.72.11",
     "xss": "^0.2.6"
   },
@@ -40,9 +40,10 @@
     "webpack-dev-server": "^1.10.1"
   },
   "scripts": {
-    "prepublish": "gulp script",
-    "build": "gulp build && gulp script",
-    "dev": "gulp html && webpack-dev-server --hot",
+    "prepublish": "rm -rf lib/ && gulp script",
+    "postpublish": "gulp build && gulp rsync",
+    "prestart": "gulp html",
+    "start": "webpack-dev-server --hot --progress",
     "test": ""
   },
   "keywords": [

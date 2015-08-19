@@ -14,14 +14,34 @@ module.exports = React.createClass
   propTypes:
     onClick: T.func
     attachment: T.object.isRequired
-    errorMessage: T.string
+    eventBus: T.object
+
+  getInitialState: ->
+    uploading: false
+
+  componentDidMount: ->
+    if @props.eventBus?
+      unless @props.attachment.data.fileKey?
+        @props.eventBus.addListener 'uploader/progress', @onProgress
+        @props.eventBus.addListener 'uploader/complete', @onDone
+        @props.eventBus.addListener 'uploader/error', @onDone
+
+  componentWillUnoumt: ->
+    if @props.eventBus?
+      @props.eventBus.removeListener 'uploader/progress', @onProgress
+      @props.eventBus.removeListener 'uploader/complete', @onDone
+      @props.eventBus.removeListener 'uploader/error', @onDone
 
   onClick: ->
     @props.onClick?()
 
-  renderError: ->
-    div className: 'error',
-      span className: 'icon icon-put-back'
+  onProgress: ->
+    if @isMounted()
+      @setState uploading: true
+
+  onDone: ->
+    if @isMounted()
+      @setState uploading: false
 
   render: ->
     thumbnailUrl = @props.attachment.data.thumbnailUrl or @props.attachment.data.previewUrl
@@ -39,4 +59,7 @@ module.exports = React.createClass
 
     div className: 'attachment-image',
       span className: 'preview',
-        LiteImageLoading onClick: @onClick, src: src, errMsg: @renderError()
+        LiteImageLoading
+          uploading: @state.uploading
+          src: src
+          onClick: @onClick
