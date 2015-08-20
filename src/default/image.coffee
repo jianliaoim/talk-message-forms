@@ -50,26 +50,34 @@ module.exports = React.createClass
   render: ->
     return if not @props.attachment.data.thumbnailUrl.length
 
-    thumbnailUrl = @props.attachment.data.thumbnailUrl
     imageHeight = @props.attachment.data.imageHeight
     imageWidth = @props.attachment.data.imageWidth
-    maxWidth = 240
+    thumbnailUrl = @props.attachment.data.thumbnailUrl
 
-    if imageWidth > maxWidth
-      height = Math.round imageHeight / (imageWidth / maxWidth)
-      width = maxWidth
+    boundary = 240
+    reg = /(\/h\/\d+)|(\/w\/\d+)/g
+
+    if imageWidth > boundary
+      previewHeight = Math.round(imageHeight / (imageWidth / boundary))
+      previewWidth = boundary
     else
-      height = imageHeight
-      width = imageWidth
+      previewHeight = imageHeight
+      previewWidth = imageWidth
 
-    reg = /(h\/\d+)|(w\/\d+)/g
+    if previewHeight > boundary
+      previewWidth = Math.round(previewWidth / (previewHeight / boundary))
+      previewHeight = boundary
+
+
     if reg.test thumbnailUrl
-      src = thumbnailUrl.replace('h/200', "h/#{ height }").replace('w/200', "w/#{ width }")
+      src = thumbnailUrl
+        .replace(/(\/h\/\d+)/g, "/h/#{ previewHeight }")
+        .replace(/(\/w\/\d+)/g, "/w/#{ previewWidth }")
     else
       src = thumbnailUrl
 
     style =
-      height: height
+      height: previewHeight
 
     div className: 'attachment-image',
       div className: 'preview', style: style,
