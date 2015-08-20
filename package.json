@@ -11,7 +11,7 @@
     "react": "^0.13.3",
     "react-lite-audio": "^0.1.1",
     "react-lite-coder": "^0.0.4",
-    "react-lite-misc": "^0.0.9",
+    "react-lite-misc": "^0.1.0",
     "teambition-icon-fonts": "^0.72.11",
     "xss": "^0.2.6"
   },
@@ -41,8 +41,8 @@
   },
   "scripts": {
     "prepublish": "rm -rf lib/ && gulp script",
-    "postpublish": "gulp build && gulp rsync",
     "prestart": "gulp html",
+    "rsync": "gulp build && gulp rsync",
     "start": "webpack-dev-server --hot --progress",
     "test": ""
   },

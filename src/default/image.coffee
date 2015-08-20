@@ -12,6 +12,7 @@ module.exports = React.createClass
   displayName: 'message-form-image'
 
   propTypes:
+    collectionMode: T.bool
     onClick: T.func
     onLoaded: T.func
     attachment: T.object.isRequired
@@ -54,7 +55,7 @@ module.exports = React.createClass
     imageWidth = @props.attachment.data.imageWidth
     thumbnailUrl = @props.attachment.data.thumbnailUrl
 
-    boundary = 240
+    boundary = if @props.collectionMode then 200 else 240
     reg = /(\/h\/\d+)|(\/w\/\d+)/g
 
     if imageWidth > boundary
