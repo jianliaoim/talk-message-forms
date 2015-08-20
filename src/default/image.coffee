@@ -48,21 +48,31 @@ module.exports = React.createClass
       @setState uploading: false
 
   render: ->
-    thumbnailUrl = @props.attachment.data.thumbnailUrl or @props.attachment.data.previewUrl
-    return if not thumbnailUrl.length
+    return if not @props.attachment.data.thumbnailUrl.length
 
+    thumbnailUrl = @props.attachment.data.thumbnailUrl
     imageHeight = @props.attachment.data.imageHeight
     imageWidth = @props.attachment.data.imageWidth
     maxWidth = 240
 
     if imageWidth > maxWidth
       height = Math.round imageHeight / (imageWidth / maxWidth)
-      src = thumbnailUrl.replace('h/200', "h/#{ height }").replace('w/200', "w/#{ maxWidth }")
+      width = maxWidth
     else
-      src = thumbnailUrl.replace('h/200', "h/#{ imageHeight }").replace('w/200', "w/#{ imageWidth }")
+      height = imageHeight
+      width = imageWidth
+
+    reg = /(h\/\d+)|(w\/\d+)/g
+    if reg.test thumbnailUrl
+      src = thumbnailUrl.replace('h/200', "h/#{ height }").replace('w/200', "w/#{ width }")
+    else
+      src = thumbnailUrl
+
+    style =
+      height: height
 
     div className: 'attachment-image',
-      span className: 'preview',
+      div className: 'preview', style: style,
         LiteImageLoading
           uploading: @state.uploading
           src: src
