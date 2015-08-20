@@ -13,6 +13,7 @@ module.exports = React.createClass
 
   propTypes:
     onClick: T.func
+    onLoaded: T.func
     attachment: T.object.isRequired
     eventBus: T.object
 
@@ -34,6 +35,9 @@ module.exports = React.createClass
 
   onClick: ->
     @props.onClick?()
+
+  onLoaded: ->
+    @props.onLoaded?()
 
   onProgress: ->
     if @isMounted()
@@ -63,3 +67,4 @@ module.exports = React.createClass
           uploading: @state.uploading
           src: src
           onClick: @onClick
+          onLoaded: @onLoaded
