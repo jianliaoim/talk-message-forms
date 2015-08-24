@@ -19,8 +19,9 @@ module.exports = React.createClass
       div className: 'title', @props.attachment.data.title
 
   renderContent: ->
+    html = __html: @props.attachment.data.text
     if @props.attachment.data.text?.length
-      div className: 'content', @props.attachment.data.text
+      div className: 'content', dangerouslySetInnerHTML: html
 
   renderPicture: ->
     return if not @props.attachment.data.imageUrl?.length
