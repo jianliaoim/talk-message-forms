@@ -1,5 +1,7 @@
 React = require 'react'
 
+format = require '../util/format'
+
 div = React.createFactory 'div'
 
 T = React.PropTypes
@@ -15,19 +17,19 @@ module.exports = React.createClass
     @props.onClick?()
 
   renderTitle: ->
-    if @props.attachment.data.title?.length
-      div className: 'title', @props.attachment.data.title
+    return if not @props.attachment.data.title?.length
+    div className: 'title', @props.attachment.data.title
 
   renderContent: ->
-    html = __html: @props.attachment.data.text
-    if @props.attachment.data.text?.length
-      div className: 'content', dangerouslySetInnerHTML: html
+    return if not @props.attachment.data.text?.length
+    text = format.htmlAsText(@props.attachment.data.text).replace(/\n+/g, ' ').trim()
+    return if not text.length
+    div className: 'content', text
 
   renderPicture: ->
     return if not @props.attachment.data.imageUrl?.length
     style =
-      if @props.attachment.data.imageUrl isnt ''
-        backgroundImage: "url(#{ @props.attachment.data.imageUrl })"
+      backgroundImage: "url( #{ @props.attachment.data.imageUrl } )"
     div className: 'picture', style: style
 
   render: ->

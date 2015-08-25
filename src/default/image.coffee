@@ -19,7 +19,7 @@ module.exports = React.createClass
     eventBus: T.object
 
   getInitialState: ->
-    uploading: false
+    isUploading: false
 
   componentDidMount: ->
     if @props.eventBus?
@@ -42,14 +42,14 @@ module.exports = React.createClass
 
   onProgress: ->
     if @isMounted()
-      @setState uploading: true
+      @setState isUploading: true
 
   onDone: ->
     if @isMounted()
-      @setState uploading: false
+      @setState isUploading: false
 
-  render: ->
-    return if not @props.attachment.data.thumbnailUrl.length
+  renderPreview: ->
+    return if not @props.attachment.data.thumbnailUrl?.length
 
     imageHeight = @props.attachment.data.imageHeight
     imageWidth = @props.attachment.data.imageWidth
@@ -77,13 +77,17 @@ module.exports = React.createClass
     else
       src = thumbnailUrl
 
-    style =
-      height: previewHeight
+    if @props.isUploading
+      style =
+        height: previewHeight
 
+    div className: 'preview', style: style,
+      LiteImageLoading
+        uploading: @state.isUploading
+        src: src
+        onClick: @onClick
+        onLoaded: @onLoaded
+
+  render: ->
     div className: 'attachment-image',
-      div className: 'preview', style: style,
-        LiteImageLoading
-          uploading: @state.uploading
-          src: src
-          onClick: @onClick
-          onLoaded: @onLoaded
+      @renderPreview()

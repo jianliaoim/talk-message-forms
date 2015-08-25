@@ -29,12 +29,10 @@ module.exports = React.createClass
 
   renderPicture: ->
     includeImage = detect.extractURL @props.attachment.data.text
-
-    if includeImage
-      url = includeImage
-      style =
-        backgroundImage: "url( #{ url } )"
-      div className: 'picture', style: style
+    return if not includeImage
+    style =
+      backgroundImage: "url( #{ includeImage } )"
+    div className: 'picture', style: style
 
   render: ->
     div className: 'attachment-rtf', onClick: @onClick,
