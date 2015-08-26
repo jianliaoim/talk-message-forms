@@ -77,9 +77,8 @@ module.exports = React.createClass
     else
       src = thumbnailUrl
 
-    if @props.isUploading
-      style =
-        height: previewHeight
+    style =
+      height: previewHeight
 
     div className: 'preview', style: style,
       LiteImageLoading
