@@ -27,7 +27,7 @@ module.exports = React.createClass
       eventBus.removeListener 'uploader/progress', @onProgress
 
   getColor: ->
-    if @props.color? isnt ''
+    if @props.color?.length
       color = @props.color
     else
       color = '#7986CB'

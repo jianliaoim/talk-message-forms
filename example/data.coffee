@@ -17,6 +17,19 @@ module.exports = [
 ,
   createTime: 'A few minutes ago'
   avatar:
+    img: '//api.adorable.io/avatars/250/file'
+    name: 'File'
+  message: 'Send a file attachment.'
+  attachments: [
+    category: 'file'
+    data:
+      fileType: 'js'
+      fileName: 'hey'
+  ]
+  isSystem: false
+,
+  createTime: 'A few minutes ago'
+  avatar:
     img: '//api.adorable.io/avatars/250/image'
     name: 'Image'
   message: 'Send a image attachment.'

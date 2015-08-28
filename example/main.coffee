@@ -4,6 +4,7 @@ React = require 'react'
 
 messages = require './data'
 
+MessageFormFile = React.createFactory require('../src/index').File
 MessageFormImage = React.createFactory require('../src/index').Image
 MessageFormQuote = React.createFactory require('../src/index').Quote
 MessageFormRTF = React.createFactory require('../src/index').RTF
@@ -24,6 +25,8 @@ Message = React.createFactory React.createClass
     attachments = @props.message.attachments
     attachments.map (attachment, index) =>
       switch attachment.category
+        when 'file'
+          MessageFormFile key: index, attachment: attachment
         when 'image'
           MessageFormImage key: index, attachment: attachment
         when 'quote'
