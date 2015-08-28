@@ -20,7 +20,7 @@ module.exports = React.createClass
     eventBus: T.object
 
   getInitialState: ->
-    isUpload: false
+    isUploadImage: false
 
   componentDidMount: ->
     if @props.eventBus?
@@ -40,8 +40,8 @@ module.exports = React.createClass
   onClick: ->
     @props.onClick?()
 
-  onClickUploading: ->
-    if(@state.progress>=1)
+  onClickUploadImage: ->
+    if @state.progress>=1
       @props.onClick?()
 
   onLoaded: ->
@@ -49,7 +49,7 @@ module.exports = React.createClass
 
   onCreate: ->
     @setState
-      isUpload: true
+      isUploadImage: true
       progress: 0
 
   onProgress: (progress, data)->
@@ -57,7 +57,7 @@ module.exports = React.createClass
     if (fileName is @props.attachment.data.fileName) and (fileSize is @props.attachment.data.fileSize)
       @setState
         progress: progress
-        isUpload: true
+        isUploadImage: true
 
   onDone: ->
     @setState progress: 1
@@ -90,26 +90,19 @@ module.exports = React.createClass
       else
         src = thumbnailUrl
 
-    if reg.test thumbnailUrl
-      src = thumbnailUrl
-        .replace(/(\/h\/\d+)/g, "/h/#{ previewHeight }")
-        .replace(/(\/w\/\d+)/g, "/w/#{ previewWidth }")
-    else
-      src = thumbnailUrl
-
     style =
       height: previewHeight
       maxWidth: previewWidth
 
-    if @state.isUpload
+    if @state.isUploadImage
       image = LiteImageLocal
         key: @props.attachment.data.fileName
         src: src
-        onClick: @onClickUploading
+        onClick: @onClickUploadImage
         onLoaded: @onLoaded
     else
       image = LiteImageLoading
-        uploading: @state.isUpload && @state.progress < 1
+        uploading: @state.isUploadImage && @state.progress < 1
         src: src
         onClick: @onClick
         onLoaded: @onLoaded
@@ -120,14 +113,14 @@ module.exports = React.createClass
       @renderLoadingIndicator()
 
   renderLoadingScreen: ->
-    return if not @state.isUpload
+    return if not @state.isUploadImage
     style =
       width: "#{@state.progress * 100}%"
     div className: 'progress-background',
       div className: 'progress-bar', style: style
 
   renderLoadingIndicator: ->
-    return if not @state.isUpload
+    return if not @state.isUploadImage
     div className: 'uploading-indicator'
 
   render: ->
