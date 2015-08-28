@@ -2,6 +2,41 @@
 
   #TalkMessageForms .Margin();
 
+  cursor: pointer;
+  .preview {
+    position: relative;
+  }
+
+  .uploading-indicator {
+    position: absolute;
+    right: -32px;
+    background: url('../../images/uploading-indicator.gif') no-repeat;
+    height: 16px;
+    width: 16px;
+    bottom: 0;
+    top: 50%;
+    transform: translate3d(0,-50%,0);
+    background-size: contain;
+
+  }
+
+  .progress-background {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    height: 5px;
+    background: #eaeaea;
+    border-radius: 2.5px;
+    .progress-bar {
+      background: #aeaeae;
+      height: 100%;
+      border-radius: 2.5px;
+    }
+
+  }
+
+
   .preview {
 
     #TalkMessageForms .ImageClickable();
