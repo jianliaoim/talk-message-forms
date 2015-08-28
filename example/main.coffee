@@ -5,6 +5,8 @@ React = require 'react'
 messages = require './data'
 
 MessageFormImage = React.createFactory require('../src/index').Image
+MessageFormQuote = React.createFactory require('../src/index').Quote
+MessageFormRTF = React.createFactory require('../src/index').RTF
 
 div  = React.createFactory 'div'
 img  = React.createFactory 'img'
@@ -24,6 +26,10 @@ Message = React.createFactory React.createClass
       switch attachment.category
         when 'image'
           MessageFormImage key: index, attachment: attachment
+        when 'quote'
+          MessageFormQuote key: index, attachment: attachment
+        when 'rtf'
+          MessageFormRTF key:index, attachment: attachment
 
   render: ->
     div className: 'message',

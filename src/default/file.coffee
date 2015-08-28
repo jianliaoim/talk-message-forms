@@ -1,5 +1,5 @@
-React = require 'react'
 xss = require 'xss'
+React = require 'react'
 
 div = React.createFactory 'div'
 

@@ -23,7 +23,7 @@ module.exports = React.createClass
 
   componentDidMount: ->
     if @props.eventBus?
-      unless @props.attachment.data.fileKey?
+      unless @props.attachment.data.fileKey?.length
         @props.eventBus.addListener 'uploader/progress', @onProgress
         @props.eventBus.addListener 'uploader/complete', @onDone
         @props.eventBus.addListener 'uploader/error', @onDone
@@ -49,43 +49,42 @@ module.exports = React.createClass
       @setState isUploading: false
 
   renderPreview: ->
-    return if not @props.attachment.data.thumbnailUrl?.length
+    if @props.attachment.data.thumbnailUrl?.length
+      imageHeight = @props.attachment.data.imageHeight
+      imageWidth = @props.attachment.data.imageWidth
+      thumbnailUrl = @props.attachment.data.thumbnailUrl
 
-    imageHeight = @props.attachment.data.imageHeight
-    imageWidth = @props.attachment.data.imageWidth
-    thumbnailUrl = @props.attachment.data.thumbnailUrl
+      boundary = if @props.collectionMode then 200 else 240
+      reg = /(\/h\/\d+)|(\/w\/\d+)/g
 
-    boundary = if @props.collectionMode then 200 else 240
-    reg = /(\/h\/\d+)|(\/w\/\d+)/g
+      if imageWidth > boundary
+        previewHeight = Math.round(imageHeight / (imageWidth / boundary))
+        previewWidth = boundary
+      else
+        previewHeight = imageHeight
+        previewWidth = imageWidth
 
-    if imageWidth > boundary
-      previewHeight = Math.round(imageHeight / (imageWidth / boundary))
-      previewWidth = boundary
-    else
-      previewHeight = imageHeight
-      previewWidth = imageWidth
-
-    if previewHeight > boundary
-      previewWidth = Math.round(previewWidth / (previewHeight / boundary))
-      previewHeight = boundary
+      if previewHeight > boundary
+        previewWidth = Math.round(previewWidth / (previewHeight / boundary))
+        previewHeight = boundary
 
 
-    if reg.test thumbnailUrl
-      src = thumbnailUrl
-        .replace(/(\/h\/\d+)/g, "/h/#{ previewHeight }")
-        .replace(/(\/w\/\d+)/g, "/w/#{ previewWidth }")
-    else
-      src = thumbnailUrl
+      if reg.test thumbnailUrl
+        src = thumbnailUrl
+          .replace(/(\/h\/\d+)/g, "/h/#{ previewHeight }")
+          .replace(/(\/w\/\d+)/g, "/w/#{ previewWidth }")
+      else
+        src = thumbnailUrl
 
-    style =
-      height: previewHeight
+      style =
+        height: previewHeight
 
-    div className: 'preview', style: style,
-      LiteImageLoading
-        uploading: @state.isUploading
-        src: src
-        onClick: @onClick
-        onLoaded: @onLoaded
+      div className: 'preview', style: style,
+        LiteImageLoading
+          uploading: @state.isUploading
+          src: src
+          onClick: @onClick
+          onLoaded: @onLoaded
 
   render: ->
     div className: 'attachment-image',

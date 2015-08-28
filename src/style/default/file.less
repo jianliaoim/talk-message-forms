@@ -1,29 +1,29 @@
 .attachment-file {
 
-  @attachment-file-height: 40px;
+  @innerHeight: 40px;
 
-  #tmf-normalize .border-radius();
-  #tmf-normalize .box-clickable();
+  #TalkMessageForms .BorderRadius();
+  #TalkMessageForms .Clickable();
 
   position: relative;
 
   overflow: hidden;
 
-  line-height: @attachment-file-height;
+  line-height: @innerHeight;
   vertical-align: middle;
 
   > .file-type {
 
     float: left;
 
-    height: @attachment-file-height;
-    min-width: @attachment-file-height;
+    height: @innerHeight;
+    min-width: @innerHeight;
 
     padding: 0 5px;
 
-    color: @message-attachments-white;
+    color: @colorWhite;
 
-    line-height: @attachment-file-height;
+    line-height: @innerHeight;
 
     text-align: center;
 
@@ -31,8 +31,8 @@
 
   > .file-name {
 
-    #tmf-normalize .font-emphasize();
-    #tmf-normalize .text-overflow();
+    #TalkMessageForms .FontEmphasize();
+    #TalkMessageForms .TextOverflow();
 
     padding: 0 15px;
 
@@ -46,7 +46,7 @@
     top: 0;
     left: 0;
 
-    height: @attachment-file-height;
+    height: @innerHeight;
 
     -webkit-transition: width 500ms;
     -moz-transition: width 500ms;

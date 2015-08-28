@@ -1,42 +1,43 @@
-#tmf-normalize {
+#TalkMessageForms {
 
-  .background-boundary() {
+  .BackgroundBoundary() {
     background-size: cover;
     background-position: center center;
   }
 
-  .border-radius(@value: 3px) {
+  .BorderRadius(@value: 3px) {
     border-radius: @value;
   }
 
-  .box() {
-    border: 1px solid @message-attachments-gray;
+  .Box() {
+    border: 1px solid @colorGray;
   }
 
-  .box-clickable() {
-    border: 1px solid @message-attachments-gray;
+  .BoxModal(@value: 15px) {
+    padding: @value;
 
+    border: 1px solid @colorGray;
+  }
+
+  .BoxText() {
+    line-height: @lineHeight;
+  }
+
+  .Clickable() {
     cursor: pointer;
 
     &:hover {
-      background: @message-attachments-gray-hover;
+      background: @colorGrayHover;
     }
   }
 
-  .box-modal(@value: 15px) {
-    padding: @value;
-  }
-
-  .box-text() {
-    line-height: @message-attachments-line-height;
-  }
-
-  .font-emphasize() {
+  .FontEmphasize() {
     font-style: normal;
     font-weight: bold;
   }
 
-  .image-clickable() {
+  .ImageClickable() {
+    cursor: pointer;
 
     &:hover {
       .opacity(0.9)
@@ -44,11 +45,11 @@
 
   }
 
-  .margin(@value: 10px) {
+  .Margin(@value: 10px) {
     margin-top: @value;
   }
 
-  .paragraph-overflow(@value: 8) {
+  .ParagraphOverflow(@value: 8) {
     display: block;
     display: -webkit-box;
 
@@ -59,14 +60,7 @@
     -webkit-box-orient: vertical;
   }
 
-  .tab-size(@value: 2) {
-    -webkit-tab-size: @value;
-    -moz-tab-size: @value;
-    -o-tab-size: @value;
-    tab-size: @value;
-  }
-
-  .text-overflow() {
+  .TextOverflow() {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -74,12 +68,11 @@
 
 }
 
-.box-clickable-prototype() {
+.BoxPrototype() {
 
-  #tmf-normalize .border-radius(3px);
-  #tmf-normalize .box-clickable();
-  #tmf-normalize .box-modal();
-  #tmf-normalize .box-text();
+  #TalkMessageForms .BorderRadius(3px);
+  #TalkMessageForms .BoxModal();
+  #TalkMessageForms .BoxText();
 
   div + div {
     margin-top: 10px;
@@ -87,8 +80,8 @@
 
   .title {
 
-    #tmf-normalize .font-emphasize();
-    #tmf-normalize .text-overflow();
+    #TalkMessageForms .FontEmphasize();
+    #TalkMessageForms .TextOverflow();
 
     font-size: 16px;
 
@@ -96,9 +89,9 @@
 
   .content {
 
-    #tmf-normalize .paragraph-overflow(@message-attachments-line-boundary);
+    #TalkMessageForms .ParagraphOverflow(@boundary);
 
-    max-height: @message-attachments-line-boundary * @message-attachments-line-height;
+    max-height: @boundary * @lineHeight;
 
     font-size: 14px;
 

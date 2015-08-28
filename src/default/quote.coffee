@@ -1,3 +1,4 @@
+cx = require 'classnames'
 React = require 'react'
 
 format = require '../util/format'
@@ -33,7 +34,11 @@ module.exports = React.createClass
     div className: 'picture', style: style
 
   render: ->
-    div className: 'attachment-quote', onClick: @onClick,
+    className = cx
+      'attachment-quote': true
+      'is-clickable': @props.attachment.data.redirectUrl?.length
+
+    div className: className, onClick: @onClick,
       @renderTitle()
       @renderContent()
       @renderPicture()
