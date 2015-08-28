@@ -63,8 +63,6 @@ module.exports = React.createClass
     @setState progress: 1
 
   renderPreview: ->
-    previewHeight = null
-    previewWidth = null
     if @props.attachment.data.thumbnailUrl?.length
       imageHeight = @props.attachment.data.imageHeight
       imageWidth = @props.attachment.data.imageWidth
