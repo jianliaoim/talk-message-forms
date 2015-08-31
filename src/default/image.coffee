@@ -37,6 +37,9 @@ module.exports = React.createClass
       @props.eventBus.removeListener 'uploader/complete', @onDone
       @props.eventBus.removeListener 'uploader/error', @onDone
 
+  componentWillReceiveProps: (nextProps) ->
+    console.log 'will receive', nextProps
+
   onClick: ->
     @props.onClick?()
 
@@ -47,12 +50,14 @@ module.exports = React.createClass
   onLoaded: ->
     @props.onLoaded?()
 
-  onCreate: ->
-    @setState
-      isUploadImage: true
-      progress: 0
+  onCreate: (data) ->
+    {fileName, fileSize} = data
+    if (fileName is @props.attachment.data.fileName) and (fileSize is @props.attachment.data.fileSize)
+      @setState
+        isUploadImage: true
+        progress: 0
 
-  onProgress: (progress, data)->
+  onProgress: (progress, data) ->
     {fileName, fileSize} = data
     if (fileName is @props.attachment.data.fileName) and (fileSize is @props.attachment.data.fileSize)
       @setState
