@@ -30,13 +30,53 @@ module.exports = [
 ,
   createTime: 'A few minutes ago'
   avatar:
+    img: '//api.adorable.io/avatars/250/file'
+    name: 'File'
+  message: 'File attachment with progress.'
+  attachments: [
+    category: 'file'
+    data:
+      fileType: 'js'
+      fileName: 'hey'
+    progress: 0.5
+  ]
+  isSystem: false
+,
+  createTime: 'A few minutes ago'
+  avatar:
     img: '//api.adorable.io/avatars/250/image'
     name: 'Image'
-  message: 'Send a image attachment.'
+  message: 'An image being downloaded'
   attachments: [
     category: 'image'
     data:
       thumbnailUrl: '//api.adorable.io/avatars/250/image-attachment'
+  ]
+  isSystem: false
+,
+  createTime: 'A few minutes ago'
+  avatar:
+    img: '//api.adorable.io/avatars/250/image'
+    name: 'Image'
+  message: 'An image being uploaded.'
+  attachments: [
+    category: 'image'
+    data:
+      thumbnailUrl: 'data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7'
+    isUploading: true
+    progress: 0.5
+  ]
+  isSystem: false
+,
+  createTime: 'A few minutes ago'
+  avatar:
+    img: '//api.adorable.io/avatars/250/image'
+    name: 'Image'
+  message: 'An image with bad thumbnailUrl.'
+  attachments: [
+    category: 'image'
+    data:
+      thumbnailUrl: 'asdf'
   ]
   isSystem: false
 ,

@@ -11,20 +11,7 @@ module.exports = React.createClass
   propTypes:
     onClick: T.func
     attachment: T.object.isRequired
-    eventBus: T.object
     color: T.string
-
-  getInitialState: ->
-    progress: 0
-
-  componentDidMount: ->
-    if @props.eventBus?
-      unless @props.attachment.data.fileKey?
-        @props.eventBus.addListener 'uploader/progress', @onProgress
-
-  componentWillUnoumt: ->
-    if @props.eventBus?
-      eventBus.removeListener 'uploader/progress', @onProgress
 
   getColor: ->
     if @props.color?.length
@@ -35,18 +22,12 @@ module.exports = React.createClass
   onClick: ->
     @props.onClick?()
 
-  onProgress: (progress, data) ->
-    {fileName, fileSize} = data
-    if (fileName is @props.attachment.data.fileName) and (fileSize is @props.attachment.data.fileSize)
-      if @isMounted()
-        @setState progress: progress
-
   renderProgress: ->
-    return if not @props.eventBus?
-    unless @props.attachment.data.fileKey?
+    progress = @props.attachment.progress
+    if Number.isFinite(progress) and 0 <= progress <= 1
       style =
         backgroundColor: @getColor()
-        width: "#{@state.progress * 100}%"
+        width: "#{progress * 100}%"
       div className: 'progress', style: style
 
   renderFileType: ->
