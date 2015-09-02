@@ -19,6 +19,7 @@ module.exports = React.createClass
     eventBus: T.object
 
   getInitialState: ->
+    isLoading: true
     isUploading: false
 
   componentDidMount: ->
@@ -38,6 +39,7 @@ module.exports = React.createClass
     @props.onClick?()
 
   onLoaded: ->
+    @setState isLoading: false
     @props.onLoaded?()
 
   onProgress: ->
@@ -50,6 +52,7 @@ module.exports = React.createClass
 
   renderPreview: ->
     if @props.attachment.data.thumbnailUrl?.length
+
       imageHeight = @props.attachment.data.imageHeight
       imageWidth = @props.attachment.data.imageWidth
       thumbnailUrl = @props.attachment.data.thumbnailUrl
@@ -68,7 +71,6 @@ module.exports = React.createClass
         previewWidth = Math.round(previewWidth / (previewHeight / boundary))
         previewHeight = boundary
 
-
       if reg.test thumbnailUrl
         src = thumbnailUrl
           .replace(/(\/h\/\d+)/g, "/h/#{ previewHeight }")
@@ -76,8 +78,12 @@ module.exports = React.createClass
       else
         src = thumbnailUrl
 
-      style =
-        height: previewHeight
+      if @state.isLoading and previewHeight < 120
+        style =
+          height: 120
+      else
+        style =
+          height: previewHeight
 
       div className: 'preview', style: style,
         LiteImageLoading

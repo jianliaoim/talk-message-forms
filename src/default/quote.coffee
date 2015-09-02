@@ -36,7 +36,7 @@ module.exports = React.createClass
   render: ->
     className = cx
       'attachment-quote': true
-      'is-clickable': @props.attachment.data.redirectUrl?.length
+      'is-clickable': @props.attachment.data.redirectUrl?.length or @props.attachment.data.text?.length
 
     div className: className, onClick: @onClick,
       @renderTitle()
