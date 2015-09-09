@@ -72,6 +72,20 @@ module.exports = [
   avatar:
     img: '//api.adorable.io/avatars/250/image'
     name: 'Image'
+  message: 'An image finished upload.'
+  attachments: [
+    category: 'image'
+    data:
+      thumbnailUrl: 'data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7'
+    isUploading: false
+    progress: 1
+  ]
+  isSystem: false
+,
+  createTime: 'A few minutes ago'
+  avatar:
+    img: '//api.adorable.io/avatars/250/image'
+    name: 'Image'
   message: 'An image with bad thumbnailUrl.'
   attachments: [
     category: 'image'

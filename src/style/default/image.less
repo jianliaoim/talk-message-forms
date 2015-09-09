@@ -4,6 +4,7 @@
 
   cursor: pointer;
   .preview {
+    padding-bottom: 5px; // for progress bar
     position: relative;
   }
 
@@ -21,8 +22,11 @@
   }
 
   .progress-background {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
     height: 5px;
-    width: 100%;
     border-radius: 2.5px;
     background: #eaeaea;
     .progress-bar {

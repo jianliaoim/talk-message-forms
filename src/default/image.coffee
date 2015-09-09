@@ -61,9 +61,13 @@ module.exports = React.createClass
       previewWidth = Math.round(previewWidth / (previewHeight / boundary))
       previewHeight = boundary
 
-    src = thumbnailUrl
-      .replace(/(\/h\/\d+)/g, "/h/#{previewHeight}")
-      .replace(/(\/w\/\d+)/g, "/w/#{previewWidth}")
+    src = # don't parse preview image if thumbnailUrl is a data uri generated from canvas.todataurl
+      if thumbnailUrl.substring(0, 4) is 'data'
+        thumbnailUrl
+      else
+        thumbnailUrl
+          .replace(/(\/h\/\d+)/g, "/h/#{previewHeight}")
+          .replace(/(\/w\/\d+)/g, "/w/#{previewWidth}")
 
     style =
       height: if @props.attachment.isUploading and previewHeight < 120 then 120 else previewHeight
