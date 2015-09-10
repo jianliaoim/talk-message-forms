@@ -24,7 +24,7 @@ module.exports = React.createClass
 
   renderProgress: ->
     progress = @props.attachment.progress
-    if Number.isFinite(progress) and 0 <= progress <= 1
+    if 0 <= progress <= 1
       style =
         backgroundColor: @getColor()
         width: "#{progress * 100}%"

@@ -33,7 +33,7 @@ module.exports = React.createClass
 
   renderLoadingScreen: ->
     progress = @props.attachment.progress
-    if @props.attachment.isUploading and Number.isFinite(progress) and 0 <= progress <= 1
+    if @props.attachment.isUploading and 0 <= progress <= 1
       style =
         width: "#{progress * 100}%"
       div className: 'progress-background',
