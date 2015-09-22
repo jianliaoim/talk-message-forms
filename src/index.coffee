@@ -8,6 +8,7 @@ exports.Quote = require './default/quote'
 exports.RTF = require './default/rtf'
 exports.Snippet = require './default/snippet'
 exports.Speech = require './default/speech'
+exports.Message = require './default/message'
 
 exports.MiniFile = require './mini/file'
 exports.MiniImage = require './mini/image'
