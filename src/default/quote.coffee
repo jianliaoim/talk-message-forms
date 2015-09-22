@@ -2,6 +2,7 @@ cx = require 'classnames'
 React = require 'react'
 
 format = require '../util/format'
+detect = require '../util/detect'
 
 div = React.createFactory 'div'
 
@@ -11,15 +12,23 @@ module.exports = React.createClass
   displayName: 'message-form-quote'
 
   propTypes:
+    lang: T.string
     onClick:    T.func
     attachment: T.object.isRequired
+
+  getDefaultProps: ->
+    lang: 'zh'
 
   onClick: ->
     @props.onClick?()
 
   renderTitle: ->
     return if not @props.attachment.data.title?.length
-    div className: 'title', @props.attachment.data.title
+    if detect.isFromTeambition @props.attachment.data.redirectUrl
+      title = if @props.lang is 'zh' then "访问 Teambition 查看更多" else "Check out Teambition for more information"
+    else
+      title = @props.attachment.data.title
+    div className: 'title', title
 
   renderContent: ->
     return if not @props.attachment.data.text?.length
