@@ -1,6 +1,6 @@
 React = require 'react'
 
-LiteImageLoading = React.createFactory require('react-lite-misc').ImageLoading
+LiteImage = React.createFactory require('react-lite-image')
 
 div = React.createFactory 'div'
 img = React.createFactory 'img'
@@ -73,10 +73,13 @@ module.exports = React.createClass
       height: if @props.attachment.isUploading and previewHeight < 120 then 120 else previewHeight
       maxWidth: previewWidth
 
-    image = LiteImageLoading
+    console.log previewWidth, previewHeight
+    image = LiteImage
       src: src
       onClick: @onClick
       onLoaded: @onLoaded
+      width: previewWidth
+      height: previewHeight
 
     div className: 'preview', style: style,
       image

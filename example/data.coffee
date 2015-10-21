@@ -50,7 +50,37 @@ module.exports = [
   attachments: [
     category: 'image'
     data:
-      thumbnailUrl: '//api.adorable.io/avatars/250/image-attachment'
+      thumbnailUrl: '//d13yacurqjgara.cloudfront.net/users/6084/screenshots/2277803/thewinds3.png'
+      imageWidth: 800
+      imageHeight: 600
+  ]
+  isSystem: false
+,
+  createTime: 'A few minutes ago'
+  avatar:
+    img: '//api.adorable.io/avatars/250/image'
+    name: 'Image'
+  message: 'An image being downloaded'
+  attachments: [
+    category: 'image'
+    data:
+      thumbnailUrl: '//d13yacurqjgara.cloudfront.net/users/159888/screenshots/2274849/everest-01.png'
+      imageWidth: 800
+      imageHeight: 600
+  ]
+  isSystem: false
+,
+  createTime: 'A few minutes ago'
+  avatar:
+    img: '//api.adorable.io/avatars/250/image'
+    name: 'Image'
+  message: 'An image being downloaded'
+  attachments: [
+    category: 'image'
+    data:
+      thumbnailUrl: '//d13yacurqjgara.cloudfront.net/users/6084/screenshots/2283224/charitywords.png'
+      imageWidth: 800
+      imageHeight: 600
   ]
   isSystem: false
 ,
