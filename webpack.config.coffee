@@ -21,7 +21,7 @@ module.exports =
     extensions: ['.coffee', '.js', '.jsx', '']
   module:
     loaders: [
-      {test: /\.coffee$/, loader: 'coffee'}
+      {test: /\.coffee$/, loader: 'react-hot!coffee', ignore: /node_modules/}
       {test: /\.css$/, loader: 'style!css?importLoaders=1!autoprefixer?{browsers:["> 1%"]}'}
       {test: /\.js$/, exclude: /node_modules/, loader: 'babel'}
       {test: /\.jsx$/, exclude: /node_modules/, loader: 'babel'}

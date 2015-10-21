@@ -1,3 +1,6 @@
+
+localeImage = require './local-image'
+
 module.exports = [
   createTime: 'a few seconds ago'
   avatar:
@@ -92,7 +95,9 @@ module.exports = [
   attachments: [
     category: 'image'
     data:
-      thumbnailUrl: 'data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7'
+      thumbnailUrl: localeImage.one
+      imageWidth: 400
+      imageHeight: 300
     isUploading: true
     progress: 0.5
   ]
@@ -106,7 +111,9 @@ module.exports = [
   attachments: [
     category: 'image'
     data:
-      thumbnailUrl: 'data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7'
+      thumbnailUrl: localeImage.two
+      imageWidth: 400
+      imageHeight: 300
     isUploading: false
     progress: 1
   ]
@@ -121,6 +128,8 @@ module.exports = [
     category: 'image'
     data:
       thumbnailUrl: 'asdf'
+      imageWidth: 200
+      imageHeight: 200
   ]
   isSystem: false
 ,

@@ -38,10 +38,12 @@ Message = React.createFactory React.createClass
     div className: 'message',
       div className: 'avatar',
         img src: @props.message.avatar.img
-      span className: 'avatar-name', @props.message.avatar.name
-      span className: 'create-time', @props.message.createTime
-      div className: 'content', @props.message.message,
-        @renderAttachments()
+      div className: 'body',
+        div className: 'header',
+          span className: 'avatar-name', @props.message.avatar.name
+          span className: 'create-time', @props.message.createTime
+        div className: 'content', @props.message.message,
+          @renderAttachments()
 
 App = React.createClass
   displayName: 'app'

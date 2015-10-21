@@ -31,13 +31,15 @@ module.exports = React.createClass
   onLoaded: ->
     @props.onLoaded?()
 
-  renderLoadingScreen: ->
+  renderLoadingScreen: (previewWidth, previewHeight) ->
     progress = @props.attachment.progress
     if @props.attachment.isUploading and 0 <= progress <= 1
       style =
+        top: previewHeight + 5
+      barStyle =
         width: "#{progress * 100}%"
-      div className: 'progress-background',
-        div className: 'progress-bar', style: style
+      div className: 'progress-background', style: style,
+        div className: 'progress-bar', style: barStyle
 
   renderLoadingIndicator: ->
     if @props.attachment.isUploading
@@ -73,7 +75,6 @@ module.exports = React.createClass
       height: if @props.attachment.isUploading and previewHeight < 120 then 120 else previewHeight
       maxWidth: previewWidth
 
-    console.log previewWidth, previewHeight
     image = LiteImage
       src: src
       onClick: @onClick
@@ -83,7 +84,7 @@ module.exports = React.createClass
 
     div className: 'preview', style: style,
       image
-      @renderLoadingScreen()
+      @renderLoadingScreen(previewWidth, previewHeight)
       #@renderLoadingIndicator()
 
   render: ->
