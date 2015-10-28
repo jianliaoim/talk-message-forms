@@ -14,7 +14,8 @@ module.exports = React.createClass
     onClick: T.func
     attachment: T.object.isRequired
 
-  onClick: ->
+  onClick: (event) ->
+    event.stopPropagation()
     @props.onClick?()
 
   render: ->

@@ -19,7 +19,8 @@ module.exports = React.createClass
     else
       color = '#7986CB'
 
-  onClick: ->
+  onClick: (event) ->
+    event.stopPropagation()
     @props.onClick?()
 
   renderProgress: ->

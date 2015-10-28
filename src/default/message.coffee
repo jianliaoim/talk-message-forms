@@ -10,7 +10,8 @@ module.exports = React.createClass
   propTypes:
     onClick:    T.func
 
-  onClick: ->
+  onClick: (event) ->
+    event.stopPropagation()
     @props.onClick?()
 
   render: ->

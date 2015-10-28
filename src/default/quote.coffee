@@ -19,7 +19,8 @@ module.exports = React.createClass
   getDefaultProps: ->
     lang: 'zh'
 
-  onClick: ->
+  onClick: (event) ->
+    event.stopPropagation()
     @props.onClick?()
 
   renderTitle: ->
