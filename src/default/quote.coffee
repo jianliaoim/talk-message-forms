@@ -25,7 +25,7 @@ module.exports = React.createClass
 
   renderTitle: ->
     return if not @props.attachment.data.title?.length
-    if detect.isFromTeambition @props.attachment.data.redirectUrl
+    if detect.isFromTeambition @props.attachment.data.redirectUrl and @props.attachment.data.category is 'url'
       title = if @props.lang is 'zh' then "访问 Teambition 查看更多" else "Check out Teambition for more information"
     else
       title = @props.attachment.data.title
