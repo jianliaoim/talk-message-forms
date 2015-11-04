@@ -72,7 +72,7 @@ module.exports = React.createClass
           .replace(/(\/w\/\d+)/g, "/w/#{previewWidth}")
 
     style =
-      height: if @props.attachment.isUploading and previewHeight < 120 then 120 else previewHeight
+      height: previewHeight
       maxWidth: previewWidth
 
     image = LiteImage
