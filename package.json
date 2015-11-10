@@ -1,6 +1,6 @@
 {
   "name": "talk-message-forms",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "The Message Structure and Layout of jianliao.com",
   "main": "lib/index.js",
   "dependencies": {
@@ -14,7 +14,7 @@
     "react-lite-image": "^1.2.9",
     "react-lite-misc": "1.0.0",
     "teambition-icon-fonts": "^0.72.11",
-    "xss": "^0.2.6"
+    "xss": "^0.2.7"
   },
   "devDependencies": {
     "autoprefixer-loader": "^2.0.0",
