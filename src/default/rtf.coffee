@@ -26,7 +26,7 @@ module.exports = React.createClass
     return if not @props.attachment.data.text?.length
     text = format.htmlAsText(@props.attachment.data.text).replace(/\n+/g, ' ').trim()
     return if not text.length
-    div className: 'content', text
+    div className: 'content', dangerouslySetInnerHTML: __html: text
 
   renderPicture: ->
     includeImage = detect.extractURL @props.attachment.data.text
