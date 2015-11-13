@@ -160,7 +160,7 @@ module.exports = [
     category: 'quote'
     data:
       text: '''
-        Lorem &nbsp; Ipsum &nbsp; is &nbsp; simply &nbsp; dummy &nbsp; text &nbsp; of &nbsp; the &nbsp; printing &nbsp; and &nbsp; typesetting &nbsp; industry.\n
+        <div>Lorem &nbsp; Ipsum &nbsp; is &nbsp; simply &nbsp; dummy &nbsp; text &nbsp; of &nbsp; the &nbsp; printing &nbsp; and &nbsp; typesetting &nbsp; industry.</div>\n
         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\n
         It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n
         '''
@@ -177,9 +177,13 @@ module.exports = [
     category: 'rtf'
     data:
       text: '''
-        Lorem &nbsp; Ipsum &nbsp; is &nbsp; simply &nbsp; dummy &nbsp; text &nbsp; of &nbsp; the &nbsp; printing &nbsp; and &nbsp; typesetting &nbsp; industry.\n
+        \n
+        \n
+        Lorem &nbsp; Ipsum &nbsp; is &nbsp; simply &nbsp; dummy &nbsp; text &nbsp; of &nbsp; the &nbsp; printing &nbsp; and &nbsp; typesetting &nbsp; industry.\n\n\n
         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\n
         It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n
+        \n
+        \n
         '''
       title: 'Lorem ipsum dolor sit amet.'
   ]
