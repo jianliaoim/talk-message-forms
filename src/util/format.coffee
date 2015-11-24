@@ -1,8 +1,10 @@
 xss = require 'xss'
+truncate = require 'html-truncate'
 
-exports.htmlAsText = (html) ->
-  # https://github.com/leizongmin/js-xss/blob/master/example/strip_tag.js
-  xss html,
-    whiteList: []
-    stripIgnoreTag: true
-    stripIgnoreTagBody: ['script']
+myxss = new xss.FilterXSS
+  onTagAttr: (tag) ->
+    return '' if tag is 'img'
+
+exports.parseHtml = (html) ->
+  html = myxss.process(html).trim()
+  truncate(html, 2000, {ellipsis: '...'})
