@@ -188,4 +188,112 @@ module.exports = [
       title: 'Lorem ipsum dolor sit amet.'
   ]
   isSystem: false
+,
+  createTime: 'A few minutes ago'
+  avatar:
+    img: '//api.adorable.io/avatars/250/rtf'
+    name: 'RTF'
+  message: 'Quote with html'
+  attachments: [
+    category: 'quote'
+    data:
+      text: '''
+        <script>alert(123)</script>
+        <div style="background-image: url(http://www.w3schools.com/jsref/img_tree.png);"></div>
+        <a href=""><img src="//api.adorable.io/avatars/250/rtf"></img></a>
+        2015-11-23 <br/>
+        <br/>
+        <b>Teambition:</b>
+        <br/>
+        <table>
+          <thead>
+            <tr>
+              <th>Metrics&nbsp;&nbsp;</th>
+              <th>3 week ago&nbsp;&nbsp;</th>
+              <th>2 week ago&nbsp;&nbsp;</th>
+              <th>Last week&nbsp;&nbsp;</th>
+              <th>Yesterday&nbsp;&nbsp;</th>
+              <th>Comparison</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr>
+              <td>active user</td>
+                <td style='text-align: right'>27242&nbsp;&nbsp;</td>
+                <td style='text-align: right'>27557&nbsp;&nbsp;</td>
+                <td style='text-align: right'>27936&nbsp;&nbsp;</td>
+                <td style='text-align: right'>27935&nbsp;&nbsp;</td>
+                <td style="color: green; text-align: right">1.3%</td>
+            </tr>
+
+            <tr>
+              <td>new user</td>
+                <td style='text-align: right'>2007&nbsp;&nbsp;</td>
+                <td style='text-align: right'>2005&nbsp;&nbsp;</td>
+                <td style='text-align: right'>1944&nbsp;&nbsp;</td>
+                <td style='text-align: right'>1853&nbsp;&nbsp;</td>
+                <td style="color: red; text-align: right">-6.7%</td>
+            </tr>
+
+            <tr>
+              <td>new organization</td>
+                <td style='text-align: right'>162&nbsp;&nbsp;</td>
+                <td style='text-align: right'>153&nbsp;&nbsp;</td>
+                <td style='text-align: right'>135&nbsp;&nbsp;</td>
+                <td style='text-align: right'>131&nbsp;&nbsp;</td>
+                <td style="color: red; text-align: right">-12.7%</td>
+            </tr>
+
+            <tr>
+              <td>new project</td>
+                <td style='text-align: right'>1271&nbsp;&nbsp;</td>
+                <td style='text-align: right'>1052&nbsp;&nbsp;</td>
+                <td style='text-align: right'>998&nbsp;&nbsp;</td>
+                <td style='text-align: right'>978&nbsp;&nbsp;</td>
+                <td style="color: red; text-align: right">-11.7%</td>
+            </tr>
+
+            <tr>
+              <td>new task</td>
+                <td style='text-align: right'>39171&nbsp;&nbsp;</td>
+                <td style='text-align: right'>37422&nbsp;&nbsp;</td>
+                <td style='text-align: right'>37959&nbsp;&nbsp;</td>
+                <td style='text-align: right'>34943&nbsp;&nbsp;</td>
+                <td style="color: red; text-align: right">-8.5%</td>
+            </tr>
+
+            <tr>
+              <td>new work</td>
+                <td style='text-align: right'>13406&nbsp;&nbsp;</td>
+                <td style='text-align: right'>15178&nbsp;&nbsp;</td>
+                <td style='text-align: right'>14927&nbsp;&nbsp;</td>
+                <td style='text-align: right'>15323&nbsp;&nbsp;</td>
+                <td style="color: green; text-align: right">5.6%</td>
+            </tr>
+
+            <tr>
+              <td>new post</td>
+                <td style='text-align: right'>3159&nbsp;&nbsp;</td>
+                <td style='text-align: right'>3030&nbsp;&nbsp;</td>
+                <td style='text-align: right'>2947&nbsp;&nbsp;</td>
+                <td style='text-align: right'>2774&nbsp;&nbsp;</td>
+                <td style="color: red; text-align: right">-8.9%</td>
+            </tr>
+
+            <tr>
+              <td>new event</td>
+                <td style='text-align: right'>1448&nbsp;&nbsp;</td>
+                <td style='text-align: right'>1445&nbsp;&nbsp;</td>
+                <td style='text-align: right'>1481&nbsp;&nbsp;</td>
+                <td style='text-align: right'>1381&nbsp;&nbsp;</td>
+                <td style="color: red; text-align: right">-5.3%</td>
+            </tr>
+
+          </tbody>
+        </table>
+      '''
+      title: 'A super long title that does not have any meaning at all.'
+  ]
+  isSystem: false
 ]

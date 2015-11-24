@@ -24,7 +24,7 @@ module.exports = React.createClass
 
   renderContent: ->
     return if not @props.attachment.data.text?.length
-    text = format.htmlAsText(@props.attachment.data.text).trim().replace(/\n+/g, "<br />")
+    text = format.parseHtml(@props.attachment.data.text)
     return if not text.length
     div className: 'content', dangerouslySetInnerHTML: __html: text
 
