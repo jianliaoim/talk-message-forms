@@ -17,7 +17,7 @@ exports.parseHtml = (html) ->
     .replace(/^[^\S\n]+/gm, '') # remove all leading white space
     .replace(/\n{2,}/g, '\n\n') # shrink newlines
     .trim()
-    .split('\n').slice(0, 5).join('\n') # keep only first 5 lines
+    .split('\n').slice(0, 10).join('\n') # keep only first 10 lines to improve rendering
 
 exports.parseRTF = (html) ->
   rtfxss.process(html)
