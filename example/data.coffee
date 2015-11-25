@@ -177,13 +177,9 @@ module.exports = [
     category: 'rtf'
     data:
       text: '''
-        \n
-        \n
-        Lorem &nbsp; Ipsum &nbsp; is &nbsp; simply &nbsp; dummy &nbsp; text &nbsp; of &nbsp; the &nbsp; printing &nbsp; and &nbsp; typesetting &nbsp; industry.\n\n\n
-        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\n
-        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n
-        \n
-        \n
+        <p> this is a paragraph</p><p>this is another paragraph </p>
+        <img></img>
+        <ul><li>aaa</li><li>bbb</li></ul>
         '''
       title: 'Lorem ipsum dolor sit amet.'
   ]
@@ -192,19 +188,33 @@ module.exports = [
   createTime: 'A few minutes ago'
   avatar:
     img: '//api.adorable.io/avatars/250/rtf'
-    name: 'RTF'
+    name: 'Quote'
   message: 'Quote with html'
   attachments: [
     category: 'quote'
     data:
       text: '''
         <script>alert(123)</script>
-        <div style="background-image: url(http://www.w3schools.com/jsref/img_tree.png);"></div>
+        <p>this is a paragraph</p><p>this is another paragraph</p><div style="background-image: url(http://www.w3schools.com/jsref/img_tree.png);"></div>
         <a href=""><img src="//api.adorable.io/avatars/250/rtf"></img></a>
         2015-11-23 <br/>
         <br/>
         <b>Teambition:</b>
         <br/>
+      '''
+      title: 'A super long title that does not have any meaning at all.'
+  ]
+  isSystem: false
+,
+  createTime: 'A few minutes ago'
+  avatar:
+    img: '//api.adorable.io/avatars/250/rtf'
+    name: 'Quote'
+  message: 'Quote with html'
+  attachments: [
+    category: 'quote'
+    data:
+      text: '''
         <table>
           <thead>
             <tr>
@@ -234,60 +244,6 @@ module.exports = [
                 <td style='text-align: right'>1944&nbsp;&nbsp;</td>
                 <td style='text-align: right'>1853&nbsp;&nbsp;</td>
                 <td style="color: red; text-align: right">-6.7%</td>
-            </tr>
-
-            <tr>
-              <td>new organization</td>
-                <td style='text-align: right'>162&nbsp;&nbsp;</td>
-                <td style='text-align: right'>153&nbsp;&nbsp;</td>
-                <td style='text-align: right'>135&nbsp;&nbsp;</td>
-                <td style='text-align: right'>131&nbsp;&nbsp;</td>
-                <td style="color: red; text-align: right">-12.7%</td>
-            </tr>
-
-            <tr>
-              <td>new project</td>
-                <td style='text-align: right'>1271&nbsp;&nbsp;</td>
-                <td style='text-align: right'>1052&nbsp;&nbsp;</td>
-                <td style='text-align: right'>998&nbsp;&nbsp;</td>
-                <td style='text-align: right'>978&nbsp;&nbsp;</td>
-                <td style="color: red; text-align: right">-11.7%</td>
-            </tr>
-
-            <tr>
-              <td>new task</td>
-                <td style='text-align: right'>39171&nbsp;&nbsp;</td>
-                <td style='text-align: right'>37422&nbsp;&nbsp;</td>
-                <td style='text-align: right'>37959&nbsp;&nbsp;</td>
-                <td style='text-align: right'>34943&nbsp;&nbsp;</td>
-                <td style="color: red; text-align: right">-8.5%</td>
-            </tr>
-
-            <tr>
-              <td>new work</td>
-                <td style='text-align: right'>13406&nbsp;&nbsp;</td>
-                <td style='text-align: right'>15178&nbsp;&nbsp;</td>
-                <td style='text-align: right'>14927&nbsp;&nbsp;</td>
-                <td style='text-align: right'>15323&nbsp;&nbsp;</td>
-                <td style="color: green; text-align: right">5.6%</td>
-            </tr>
-
-            <tr>
-              <td>new post</td>
-                <td style='text-align: right'>3159&nbsp;&nbsp;</td>
-                <td style='text-align: right'>3030&nbsp;&nbsp;</td>
-                <td style='text-align: right'>2947&nbsp;&nbsp;</td>
-                <td style='text-align: right'>2774&nbsp;&nbsp;</td>
-                <td style="color: red; text-align: right">-8.9%</td>
-            </tr>
-
-            <tr>
-              <td>new event</td>
-                <td style='text-align: right'>1448&nbsp;&nbsp;</td>
-                <td style='text-align: right'>1445&nbsp;&nbsp;</td>
-                <td style='text-align: right'>1481&nbsp;&nbsp;</td>
-                <td style='text-align: right'>1381&nbsp;&nbsp;</td>
-                <td style="color: red; text-align: right">-5.3%</td>
             </tr>
 
           </tbody>
