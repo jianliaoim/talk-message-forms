@@ -26,7 +26,7 @@ module.exports = React.createClass
     return if not @props.attachment.data.text?.length
     text = format.parseRTF(@props.attachment.data.text)
     return if not text.length
-    div className: 'content', dangerouslySetInnerHTML: __html: text
+    div className: 'content editor-style', dangerouslySetInnerHTML: __html: text
 
   renderPicture: ->
     includeImage = detect.extractURL @props.attachment.data.text
