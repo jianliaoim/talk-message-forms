@@ -1,7 +1,9 @@
 xss = require 'xss'
 React = require 'react'
 
+a = React.createFactory 'a'
 div = React.createFactory 'div'
+span = React.createFactory 'span'
 
 T = React.PropTypes
 
@@ -45,8 +47,14 @@ module.exports = React.createClass
       __html: xss fileName
     div className: 'file-name', dangerouslySetInnerHTML: html
 
+  renderActions: ->
+    div className: 'actions',
+      a href: @props.attachment.data.downloadUrl, target: '__blank',
+        span className: 'icon icon-download'
+
   render: ->
     div className: 'attachment-file', onClick: @onClick,
       @renderFileType()
       @renderFileName()
+      @renderActions()
       @renderProgress()

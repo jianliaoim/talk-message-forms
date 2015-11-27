@@ -10,11 +10,13 @@
   overflow: hidden;
 
   line-height: @innerHeight;
-  vertical-align: middle;
+  // vertical-align: middle;
+  display: flex;
+  align-items: center;
 
   > .file-type {
-
-    float: left;
+    flex: 0 0 auto;
+    // float: left;
 
     height: @innerHeight;
     min-width: @innerHeight;
@@ -34,8 +36,26 @@
     #TalkMessageForms .FontEmphasize();
     #TalkMessageForms .TextOverflow();
 
+    flex: 1 1 auto;
     padding: 0 15px;
 
+  }
+
+  > .actions {
+    flex: 0 0 auto;
+    opacity: 0;
+    padding: 0 15px;
+    font-size: 14px;
+    color: @iconColor;
+  }
+
+  &:hover > .actions {
+    opacity: 1;
+
+    a:hover {
+      background-color: inherit;
+      color: inherit;
+    }
   }
 
   > .progress {
@@ -43,7 +63,7 @@
     .opacity(0.75);
 
     position: absolute;
-    top: 0;
+    top: .5px;
     left: 0;
 
     height: @innerHeight;
