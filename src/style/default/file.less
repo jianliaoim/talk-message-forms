@@ -5,18 +5,13 @@
   #TalkMessageForms .BorderRadius();
   #TalkMessageForms .FileClickable();
 
-  position: relative;
-
   overflow: hidden;
 
-  line-height: @innerHeight;
-  // vertical-align: middle;
   display: flex;
   align-items: center;
 
   > .file-type {
     flex: 0 0 auto;
-    // float: left;
 
     height: @innerHeight;
     min-width: @innerHeight;
@@ -36,37 +31,44 @@
     #TalkMessageForms .FontEmphasize();
     #TalkMessageForms .TextOverflow();
 
+    position: relative;
+
+    line-height: @innerHeight;
+
     flex: 1 1 auto;
     padding: 0 15px;
-
   }
 
-  > .actions {
+  > .action {
     flex: 0 0 auto;
-    opacity: 0;
-    padding: 0 15px;
-    font-size: 14px;
-    color: @iconColor;
-  }
-
-  &:hover > .actions {
     opacity: 1;
+    padding: 0 15px;
+    font-size: 16px;
+    color: @iconColor;
+    opacity: 0;
+    transition: opacity .1s;
 
     a:hover {
+      color: @iconColorHover;
       background-color: inherit;
-      color: inherit;
     }
   }
 
-  > .progress {
+  &:hover {
+    .action {
+      opacity: 1;
+    }
+  }
+
+  > .file-name > .progress {
 
     .opacity(0.75);
 
     position: absolute;
-    top: .5px;
+    top: 0;
     left: 0;
 
-    height: @innerHeight;
+    height: 100%;
 
     -webkit-transition: width 500ms;
     -moz-transition: width 500ms;

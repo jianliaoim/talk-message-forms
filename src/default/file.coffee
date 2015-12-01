@@ -45,16 +45,18 @@ module.exports = React.createClass
     fileName = if @props.attachment.data.fileName.length then @props.attachment.data.fileName else '?'
     html =
       __html: xss fileName
-    div className: 'file-name', dangerouslySetInnerHTML: html
+    div className: 'file-name',
+      @renderProgress()
+      span {}, dangerouslySetInnerHTML: html
 
   renderActions: ->
-    div className: 'actions',
-      a href: @props.attachment.data.downloadUrl, target: '__blank',
-        span className: 'icon icon-download'
+    unless @props.attachment.isUploading?
+      div className: 'action',
+        a href: @props.attachment.data.downloadUrl, target: '__blank',
+          span className: 'icon icon-download'
 
   render: ->
     div className: 'attachment-file', onClick: @onClick,
       @renderFileType()
       @renderFileName()
       @renderActions()
-      @renderProgress()

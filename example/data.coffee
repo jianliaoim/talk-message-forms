@@ -42,6 +42,7 @@ module.exports = [
       fileType: 'js'
       fileName: 'hey'
     progress: 0.5
+    isUploading: true
   ]
   isSystem: false
 ,
