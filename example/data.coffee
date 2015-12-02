@@ -176,11 +176,11 @@ module.exports = [
   attachments: [
     category: 'rtf'
     data:
-      text: '''
+      text: '</div></h2><script>alert(1)</scirpt>this is a broken html
         <p> this is a paragraph</p><p>this is another paragraph </p>
         <img></img>
         <ul><li>aaa</li><li>bbb</li></ul>
-        '''
+        '
       title: 'Lorem ipsum dolor sit amet.'
   ]
   isSystem: false

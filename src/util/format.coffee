@@ -20,4 +20,8 @@ exports.parseHtml = (html) ->
     .split('\n').slice(0, 10).join('\n') # keep only first 10 lines to improve rendering
 
 exports.parseRTF = (html) ->
-  rtfxss.process(html)
+  div = document.createElement 'div' # use the browser to clean up invalid dom content
+  div.innerHTML = rtfxss.process(html)
+  html = div.innerHTML
+  div = null
+  html
