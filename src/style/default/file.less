@@ -3,18 +3,20 @@
   @innerHeight: 40px;
 
   #TalkMessageForms .BorderRadius();
-  #TalkMessageForms .FileClickable();
 
-  position: relative;
+  #TalkMessageForms .Box();
+
+  &.is-clickable {
+    #TalkMessageForms .FileClickable();
+  }
 
   overflow: hidden;
 
-  line-height: @innerHeight;
-  vertical-align: middle;
+  display: flex;
+  align-items: center;
 
   > .file-type {
-
-    float: left;
+    flex: 0 0 auto;
 
     height: @innerHeight;
     min-width: @innerHeight;
@@ -34,11 +36,36 @@
     #TalkMessageForms .FontEmphasize();
     #TalkMessageForms .TextOverflow();
 
-    padding: 0 15px;
+    position: relative;
 
+    line-height: @innerHeight;
+
+    flex: 1 1 auto;
+    padding: 0 15px;
   }
 
-  > .progress {
+  > .action {
+    flex: 0 0 auto;
+    opacity: 1;
+    padding: 0 15px;
+    font-size: 16px;
+    color: @iconColor;
+    opacity: 0;
+    transition: opacity .1s;
+
+    a:hover {
+      color: @iconColorHover;
+      background-color: inherit;
+    }
+  }
+
+  &:hover {
+    .action {
+      opacity: 1;
+    }
+  }
+
+  > .file-name > .progress {
 
     .opacity(0.75);
 
@@ -46,7 +73,7 @@
     top: 0;
     left: 0;
 
-    height: @innerHeight;
+    height: 100%;
 
     -webkit-transition: width 500ms;
     -moz-transition: width 500ms;
