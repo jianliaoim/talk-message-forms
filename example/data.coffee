@@ -28,6 +28,7 @@ module.exports = [
     data:
       fileType: 'js'
       fileName: 'hey'
+      downloadUrl: 'localhost:8080'
   ]
   isSystem: false
 ,
