@@ -3,7 +3,12 @@
   @innerHeight: 40px;
 
   #TalkMessageForms .BorderRadius();
-  #TalkMessageForms .FileClickable();
+
+  #TalkMessageForms .Box();
+
+  &.is-clickable {
+    #TalkMessageForms .FileClickable();
+  }
 
   overflow: hidden;
 

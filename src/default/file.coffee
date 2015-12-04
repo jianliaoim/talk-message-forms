@@ -1,5 +1,6 @@
 xss = require 'xss'
 React = require 'react'
+cx = require 'classnames'
 
 a = React.createFactory 'a'
 div = React.createFactory 'div'
@@ -23,7 +24,8 @@ module.exports = React.createClass
 
   onClick: (event) ->
     event.stopPropagation()
-    @props.onClick?()
+    unless @props.attachment.isUploading?
+      @props.onClick?()
 
   renderProgress: ->
     progress = @props.attachment.progress
@@ -56,7 +58,8 @@ module.exports = React.createClass
           span className: 'icon icon-download'
 
   render: ->
-    div className: 'attachment-file', onClick: @onClick,
+    className = cx 'attachment-file', 'is-clickable': not @props.attachment.isUploading?
+    div className: className, onClick: @onClick,
       @renderFileType()
       @renderFileName()
       @renderActions()
