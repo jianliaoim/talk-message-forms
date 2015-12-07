@@ -57,7 +57,7 @@ module.exports = React.createClass
   renderActions: ->
     unless @props.attachment.isUploading?
       div className: 'action',
-        a href: @props.attachment.data.downloadUrl, target: '__blank', onClick: @onDownloadClick,
+        a href: @props.attachment.data.downloadUrl, onClick: @onDownloadClick,
           span className: 'icon icon-download'
 
   render: ->
