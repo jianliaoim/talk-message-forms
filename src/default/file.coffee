@@ -27,6 +27,9 @@ module.exports = React.createClass
     unless @props.attachment.isUploading?
       @props.onClick?()
 
+  onDownloadClick: (event) ->
+    event.stopPropagation()
+
   renderProgress: ->
     progress = @props.attachment.progress
     if 0 <= progress <= 1
@@ -54,7 +57,7 @@ module.exports = React.createClass
   renderActions: ->
     unless @props.attachment.isUploading?
       div className: 'action',
-        a href: @props.attachment.data.downloadUrl, target: '__blank',
+        a href: @props.attachment.data.downloadUrl, target: '__blank', onClick: @onDownloadClick,
           span className: 'icon icon-download'
 
   render: ->
