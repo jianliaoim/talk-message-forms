@@ -199,10 +199,25 @@ module.exports = [
         <script>alert(123)</script>
         <p>this is a paragraph</p><p>this is another paragraph</p><div style="background-image: url(http://www.w3schools.com/jsref/img_tree.png);"></div>
         <a href=""><img src="//api.adorable.io/avatars/250/rtf"></img></a>
-        2015-11-23 <br/>
-        <br/>
-        <b>Teambition:</b>
-        <br/>
+      '''
+      title: 'A super long title that does not have any meaning at all.'
+  ]
+  isSystem: false
+,
+  createTime: 'A few minutes ago'
+  avatar:
+    img: '//api.adorable.io/avatars/250/rtf'
+    name: 'Quote'
+  message: 'Quote with html'
+  attachments: [
+    category: 'quote'
+    data:
+      text: '''
+        <br/>newline1<br>
+
+        <br><br><p>newline2</p>
+
+        <br >newline3<br />newline4
       '''
       title: 'A super long title that does not have any meaning at all.'
   ]

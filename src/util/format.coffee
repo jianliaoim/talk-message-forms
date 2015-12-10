@@ -5,8 +5,10 @@ htmlxss = new xss.FilterXSS
   stripIgnoreTag: true
   stripIgnoreTagBody: ['script']
   onTag: (tag, html, options) ->
-    if tag is 'p' and options.isClosing
-      '\n\n'
+    isP = tag is 'p' and options.isClosing
+    isBR = tag is 'br'
+    if isP or isBR
+      '\n'
 
 rtfxss = new xss.FilterXSS
   onTag: (tag, html, options) ->
