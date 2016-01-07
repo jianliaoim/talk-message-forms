@@ -14,17 +14,16 @@
   }
 
   .BorderBox() {
-    margin-top: 8px;
     padding: 14px 16px;
     background-color: @colorWhite;
-    border-left: 1px solid @colorGray;
+    border: 1px solid @colorGray;
     .BorderRadius(4px);
   }
 
   .BoxModal(@value: 12px) {
-    margin-top: 8px;
     padding: 4px @value;
     border-left: 4px solid @colorGray;
+    transition: .2s;
   }
 
   .BoxText() {
