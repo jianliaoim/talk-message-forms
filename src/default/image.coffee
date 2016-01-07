@@ -21,7 +21,6 @@ module.exports = React.createClass
     #   progress: boolean
     # }
     attachment: T.object.isRequired
-    collectionMode: T.bool
     onClick: T.func
     onLoaded: T.func
 
@@ -50,7 +49,7 @@ module.exports = React.createClass
     imageHeight = @props.attachment.data.imageHeight
     imageWidth = @props.attachment.data.imageWidth
 
-    boundary = if @props.collectionMode then 200 else 240
+    boundary = 360
 
     if imageWidth > boundary
       previewHeight = Math.round(imageHeight / (imageWidth / boundary))

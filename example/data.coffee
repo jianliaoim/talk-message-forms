@@ -28,6 +28,8 @@ module.exports = [
     data:
       fileType: 'js'
       fileName: 'hey'
+      fileSize: 686786
+      fileCategory: 'text'
       downloadUrl: 'localhost:8080'
   ]
   isSystem: false
@@ -36,14 +38,15 @@ module.exports = [
   avatar:
     img: '//api.adorable.io/avatars/250/file'
     name: 'File'
-  message: 'File attachment with progress.'
+  message: 'Send a file attachment.'
   attachments: [
     category: 'file'
     data:
-      fileType: 'js'
+      fileType: 'docx'
       fileName: 'hey'
-    progress: 0.5
-    isUploading: true
+      fileSize: 7987979
+      fileCategory: 'application'
+      downloadUrl: 'localhost:8080'
   ]
   isSystem: false
 ,
@@ -58,6 +61,7 @@ module.exports = [
       thumbnailUrl: '//d13yacurqjgara.cloudfront.net/users/6084/screenshots/2277803/thewinds3.png'
       imageWidth: 800
       imageHeight: 600
+      fileCategory: 'image'
   ]
   isSystem: false
 ,
@@ -72,6 +76,7 @@ module.exports = [
       thumbnailUrl: '//d13yacurqjgara.cloudfront.net/users/159888/screenshots/2274849/everest-01.png'
       imageWidth: 800
       imageHeight: 600
+      fileCategory: 'image'
   ]
   isSystem: false
 ,
@@ -86,6 +91,7 @@ module.exports = [
       thumbnailUrl: '//d13yacurqjgara.cloudfront.net/users/6084/screenshots/2283224/charitywords.png'
       imageWidth: 800
       imageHeight: 600
+      fileCategory: 'image'
   ]
   isSystem: false
 ,
@@ -100,6 +106,7 @@ module.exports = [
       thumbnailUrl: localeImage.one
       imageWidth: 400
       imageHeight: 300
+      fileCategory: 'image'
     isUploading: true
     progress: 0.5
   ]
@@ -116,6 +123,7 @@ module.exports = [
       thumbnailUrl: localeImage.two
       imageWidth: 400
       imageHeight: 300
+      fileCategory: 'image'
     isUploading: false
     progress: 1
   ]

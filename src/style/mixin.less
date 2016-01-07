@@ -13,9 +13,18 @@
     border: 1px solid @colorGray;
   }
 
-  .BoxModal(@value: 15px) {
-    padding: @value;
-    border-left: 5px solid @colorGray;
+  .BorderBox() {
+    margin-top: 8px;
+    padding: 14px 16px;
+    background-color: @colorWhite;
+    border-left: 1px solid @colorGray;
+    .BorderRadius(4px);
+  }
+
+  .BoxModal(@value: 12px) {
+    margin-top: 8px;
+    padding: 4px @value;
+    border-left: 4px solid @colorGray;
   }
 
   .BoxText() {
@@ -26,17 +35,15 @@
     cursor: pointer;
 
     &:hover {
-      background: @colorGrayHover;
+      border-color: @colorGrayHover;
     }
   }
 
   .FileClickable() {
-    border: 1px solid @colorGray;
-
     cursor: pointer;
 
     &:hover {
-      background: @colorGrayHover;
+      color: #7D7E80;
     }
   }
 
@@ -73,20 +80,18 @@
 
 }
 
-.BoxPrototype() {
-
-  #TalkMessageForms .BoxModal();
-  #TalkMessageForms .BoxText();
+.ContainerPrototype() {
 
   div + div {
-    margin-top: 10px;
+    margin-top: 4px;
   }
 
   .title {
 
     #TalkMessageForms .FontEmphasize();
 
-    font-size: 16px;
+    font-size: 14px;
+    line-height: 24px;
 
   }
 
@@ -100,4 +105,19 @@
 
   }
 
+}
+
+.BoxPrototype() {
+  #TalkMessageForms .BoxModal();
+  #TalkMessageForms .BoxText();
+
+  .ContainerPrototype();
+
+}
+
+.BorderBoxPrototype() {
+  #TalkMessageForms .BorderBox();
+  #TalkMessageForms .BoxText();
+
+  .ContainerPrototype();
 }

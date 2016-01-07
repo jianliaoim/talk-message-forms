@@ -1,6 +1,9 @@
 xss = require 'xss'
 React = require 'react'
 cx = require 'classnames'
+filesize = require 'filesize'
+
+position = require '../util/position'
 
 a = React.createFactory 'a'
 div = React.createFactory 'div'
@@ -30,20 +33,10 @@ module.exports = React.createClass
   onDownloadClick: (event) ->
     event.stopPropagation()
 
-  renderProgress: ->
-    progress = @props.attachment.progress
-    if 0 <= progress <= 1
-      style =
-        backgroundColor: @getColor()
-        width: "#{progress * 100}%"
-      div className: 'progress', style: style
-
   renderFileType: ->
-    return if not @props.attachment.data.fileType?
-    fileType = if @props.attachment.data.fileType.length then @props.attachment.data.fileType else '?'
     style =
-      backgroundColor: @getColor()
-    div className: 'file-type', style: style, fileType
+      backgroundPosition: position.get(@props.attachment.data)
+    div className: 'file-type', style: style
 
   renderFileName: ->
     return if not @props.attachment.data.fileName?
@@ -51,8 +44,16 @@ module.exports = React.createClass
     html =
       __html: xss fileName
     div className: 'file-name',
-      @renderProgress()
       span {}, dangerouslySetInnerHTML: html
+
+  renderFileSize: ->
+    return if not @props.attachment.data.fileSize?
+    span className: 'file-size', filesize @props.attachment.data.fileSize, unix: true
+
+  renderFileDetails: ->
+    div className: 'file-details',
+      @renderFileName()
+      @renderFileSize()
 
   renderActions: ->
     unless @props.attachment.isUploading?
@@ -64,5 +65,5 @@ module.exports = React.createClass
     className = cx 'attachment-file', 'is-clickable': not @props.attachment.isUploading?
     div className: className, onClick: @onClick,
       @renderFileType()
-      @renderFileName()
+      @renderFileDetails()
       @renderActions()
