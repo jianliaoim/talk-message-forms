@@ -3,15 +3,11 @@ FILE_CATEGORY = [ 'text', 'image', 'application', 'video', 'audio' ]
 FILE_TYPE =
   text: [ 'txt', 'html', 'css', 'js', 'xml']
   image: [ 'ps', 'ai', 'ae' ]
-  application: [ 'sketch',
-    [ 'ppt', 'pptx' ],
-    [ 'doc', 'docx' ],
-    [ 'xls', 'xlsx' ],
-    'numbers', 'pages', 'keynotes', 'pdf',
-    [ 'zip', 'rar', 'dmg' ]
+  application: [ 'sketch', [ 'ppt', 'pptx' ], [ 'doc', 'docx' ], [ 'xls', 'xlsx' ],
+    'numbers', 'pages', 'keynotes', 'pdf', [ 'zip', 'rar', 'dmg' ]
   ]
   video: [ 'mov' ]
-  audio: [ 'acc' ]
+  audio: [ 'aac' ]
 
 findType = (type, arr) ->
   pos = -1

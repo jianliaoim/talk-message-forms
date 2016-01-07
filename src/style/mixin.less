@@ -23,7 +23,6 @@
   .BoxModal(@value: 12px) {
     padding: 4px @value;
     border-left: 4px solid @colorGray;
-    transition: .2s;
   }
 
   .BoxText() {
@@ -34,7 +33,7 @@
     cursor: pointer;
 
     &:hover {
-      border-color: @colorGrayHover;
+      color: @colorFontDim;
     }
   }
 
@@ -42,7 +41,7 @@
     cursor: pointer;
 
     &:hover {
-      color: #7D7E80;
+      color: @colorFontDim;
     }
   }
 
@@ -57,7 +56,6 @@
     &:hover {
       .opacity(0.9)
     }
-
   }
 
   .ParagraphOverflow(@value: 8) {
