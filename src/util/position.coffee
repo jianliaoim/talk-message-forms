@@ -2,12 +2,12 @@ FILE_CATEGORY = [ 'text', 'image', 'application', 'video', 'audio' ]
 
 FILE_TYPE =
   text: [ 'txt', 'html', 'css', 'js', 'xml']
-  image: [ 'ps', 'ai', 'ae' ]
+  image: [ 'ps', 'ai', 'ae']
   application: [ 'sketch', [ 'ppt', 'pptx' ], [ 'doc', 'docx' ], [ 'xls', 'xlsx' ],
-    'numbers', 'pages', 'keynotes', 'pdf', [ 'zip', 'rar', 'dmg' ]
+    'pages', 'numbers', 'keynotes', 'pdf', [ 'zip', 'rar', 'dmg', 'jar' ]
   ]
-  video: [ 'mov' ]
-  audio: [ 'aac' ]
+  video: []
+  audio: []
 
 findType = (type, arr) ->
   pos = -1
@@ -27,9 +27,9 @@ exports.get = (data) ->
 
   if y < 0
     if category in [ 'image', 'video', 'audio' ]
-      y = FILE_TYPE.length - 1
+      y = FILE_TYPE.length
     else
-      x = FILE_CATEGORY.length - 1
+      x = FILE_CATEGORY.length
       y = 0
 
   "#{x * -32}px #{y * -40}px"
