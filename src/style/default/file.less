@@ -1,9 +1,9 @@
 .attachment-file {
-  @innerHeight: 24px;
-
   display: flex;
   flex-direction: horizontal;
   item-align: center;
+
+  padding: 6px 0;
 
   &.is-clickable {
     #TalkMessageForms .FileClickable();
@@ -33,7 +33,8 @@
   }
 
   > .file-details {
-    padding-left: 16px;
+    overflow: hidden;
+    padding: 0 8px;
 
     > .file-name {
 
@@ -42,7 +43,7 @@
 
       position: relative;
 
-      line-height: 24px;
+      line-height: 22px;
 
       flex: 1 1 auto;
     }

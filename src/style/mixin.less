@@ -15,13 +15,13 @@
 
   .BorderBox() {
     padding: 14px 16px;
-    background-color: @colorWhite;
+    background-color: @colorGrayBackground;
     border: 1px solid @colorGray;
     .BorderRadius(4px);
   }
 
   .BoxModal(@value: 12px) {
-    padding: 4px @value;
+    padding: 2px @value;
     border-left: 4px solid @colorGray;
   }
 
@@ -33,7 +33,7 @@
     cursor: pointer;
 
     &:hover {
-      color: @colorFontDim;
+      background-color: @colorGrayBackground;
     }
   }
 
