@@ -9,7 +9,7 @@ FILE_TYPE =
   audio: []
   video: []
 
-findType = (type, arr) ->
+findType = (type, arr = []) ->
   pos = -1
   arr.forEach (item, index) ->
     if item instanceof Array
