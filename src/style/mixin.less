@@ -21,8 +21,19 @@
   }
 
   .BoxModal(@value: 12px) {
-    padding: 2px @value;
-    border-left: 4px solid @colorGray;
+    padding: 4px @value;
+    position: relative;
+
+    &:before {
+      content: '';
+      width: 4px;
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 8px;
+      background-color: @colorGray;
+    }
   }
 
   .BoxText() {
