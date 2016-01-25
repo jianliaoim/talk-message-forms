@@ -15,14 +15,25 @@
 
   .BorderBox() {
     padding: 14px 16px;
-    background-color: @colorWhite;
+    background-color: @colorGrayBackground;
     border: 1px solid @colorGray;
     .BorderRadius(4px);
   }
 
   .BoxModal(@value: 12px) {
     padding: 4px @value;
-    border-left: 4px solid @colorGray;
+    position: relative;
+
+    &:before {
+      content: '';
+      width: 4px;
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 8px;
+      background-color: @colorGray;
+    }
   }
 
   .BoxText() {
@@ -33,7 +44,7 @@
     cursor: pointer;
 
     &:hover {
-      color: @colorFontDim;
+      background-color: @colorGrayBackground;
     }
   }
 
