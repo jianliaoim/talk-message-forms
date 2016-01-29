@@ -41,10 +41,8 @@ module.exports = React.createClass
   renderFileName: ->
     return if not @props.attachment.data.fileName?
     fileName = if @props.attachment.data.fileName.length then @props.attachment.data.fileName else '?'
-    html =
-      __html: xss fileName
     div className: 'file-name',
-      span {}, dangerouslySetInnerHTML: html
+      span dangerouslySetInnerHTML: __html: xss fileName
 
   renderFileSize: ->
     return if not @props.attachment.data.fileSize?

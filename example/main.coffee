@@ -1,6 +1,7 @@
 require './main.less'
 
 React = require 'react'
+ReactDOM = require 'react-dom'
 
 messages = require './data'
 
@@ -59,4 +60,4 @@ App = React.createClass
 root  = React.createFactory App
 mount = document.getElementById('example')
 
-React.render root(), mount
+ReactDOM.render root(), mount
