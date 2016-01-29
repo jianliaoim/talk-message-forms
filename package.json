@@ -1,6 +1,6 @@
 {
   "name": "talk-message-forms",
-  "version": "1.3.6",
+  "version": "1.4.0",
   "description": "The Message Structure and Layout of jianliao.com",
   "main": "lib/index.js",
   "dependencies": {
