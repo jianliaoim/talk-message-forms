@@ -14,7 +14,7 @@
     "react-lite-image": "1.4.0",
     "react-lite-misc": "1.2.0",
     "teambition-icon-fonts": "^0.72.11",
-    "xss": "^0.2.7",
+    "xss": "^0.2.10",
     "filesize": "^3.1.2"
   },
   "devDependencies": {
