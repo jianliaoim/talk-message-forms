@@ -57,7 +57,7 @@ module.exports = React.createClass
     unless @props.attachment.isUploading?
       div className: 'action',
         a href: @props.attachment.data.downloadUrl, onClick: @onDownloadClick,
-          span className: 'icon icon-download'
+          span className: 'ti ti-arrow-down'
 
   render: ->
     className = cx 'attachment-file', 'is-clickable': not @props.attachment.isUploading?

@@ -6,6 +6,7 @@
   "dependencies": {
     "classnames": "^2.1.3",
     "codemirror": "^5.5.0",
+    "filesize": "^3.1.2",
     "highlight.js": "^9.1.0",
     "lesshat": "^3.0.2",
     "react": "^0.14.7",
@@ -13,9 +14,8 @@
     "react-lite-coder": "^1.1.1",
     "react-lite-image": "^1.4.0",
     "react-lite-misc": "^1.2.0",
-    "teambition-icon-fonts": "^0.72.11",
-    "xss": "^0.2.10",
-    "filesize": "^3.1.2"
+    "talk-iconfonts": "^0.2.1",
+    "xss": "^0.2.10"
   },
   "devDependencies": {
     "autoprefixer-loader": "^2.0.0",
