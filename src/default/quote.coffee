@@ -5,6 +5,8 @@ format = require '../util/format'
 detect = require '../util/detect'
 
 div = React.createFactory 'div'
+span = React.createFactory 'span'
+a = React.createFactory 'a'
 
 T = React.PropTypes
 
@@ -29,7 +31,12 @@ module.exports = React.createClass
       title = if @props.lang is 'zh' then "访问 Teambition 查看更多" else "Check out Teambition for more information"
     else
       title = @props.attachment.data.title
-    div className: 'title', title
+    div className: 'title',
+      span null, title
+      if @props.attachment.data.redirectUrl
+        span null,
+          a className: 'link', href: @props.attachment.data.redirectUrl, target: '_blank',
+            span className: 'ti ti-chain'
 
   renderContent: ->
     return if not @props.attachment.data.text?.length
@@ -46,7 +53,7 @@ module.exports = React.createClass
   render: ->
     className = cx
       'attachment-quote': true
-      'is-clickable': @props.attachment.data.redirectUrl?.length or @props.attachment.data.text?.length
+      'is-clickable': @props.attachment.data.text?.length
 
     div className: className, onClick: @onClick,
       @renderTitle()

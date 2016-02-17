@@ -23,4 +23,24 @@
     white-space: pre-wrap;
   }
 
+  .title {
+    display: flex;
+    justify-content: space-between;
+    .link {
+      opacity: 0;
+      color: @iconColor;
+      transition: opacity .1s;
+      &:hover {
+        color: @iconColorHover;
+        background-color: @colorGrayBackground;
+      }
+    }
+  }
+
+  &:hover {
+    .link {
+      opacity: 1;
+    }
+  }
+
 }
