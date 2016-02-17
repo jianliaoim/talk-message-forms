@@ -158,6 +158,7 @@ module.exports = [
         It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n
         '''
       title: 'Lorem ipsum dolor sit amet.'
+      color: 'RED'
   ]
   isSystem: false
 ,
@@ -175,6 +176,7 @@ module.exports = [
         It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n
         '''
       title: 'Lorem ipsum dolor sit amet.'
+      color: 'YELLOW'
   ]
   isSystem: false
 ,
@@ -209,6 +211,7 @@ module.exports = [
         <a href=""><img src="//api.adorable.io/avatars/250/rtf"></img></a>
       '''
       title: 'A super long title that does not have any meaning at all.'
+      color: 'GREEN'
   ]
   isSystem: false
 ,
