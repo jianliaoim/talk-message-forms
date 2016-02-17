@@ -35,6 +35,7 @@
   > .file-details {
     overflow: hidden;
     padding: 0 8px;
+    flex: 1;
 
     > .file-name {
 
@@ -57,22 +58,14 @@
 
   > .action {
     flex: 0 0 auto;
-    opacity: 1;
     padding: 0 15px;
     font-size: 16px;
     color: @iconColor;
-    opacity: 0;
     transition: opacity .1s;
 
     a:hover {
       color: @iconColorHover;
       background-color: inherit;
-    }
-  }
-
-  &:hover {
-    .action {
-      opacity: 1;
     }
   }
 
