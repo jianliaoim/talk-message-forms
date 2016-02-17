@@ -36,7 +36,7 @@ module.exports = React.createClass
       if @props.attachment.data.redirectUrl
         span null,
           a className: 'link', href: @props.attachment.data.redirectUrl, target: '_blank',
-            span className: 'ti ti-chain'
+            span className: 'ti ti-redirect'
 
   renderContent: ->
     return if not @props.attachment.data.text?.length
