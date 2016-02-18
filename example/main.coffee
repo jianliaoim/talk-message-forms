@@ -22,18 +22,21 @@ Message = React.createFactory React.createClass
   propTypes:
     message: T.object.isRequired
 
+  onClick: ->
+    console.log 'clicked'
+
   renderAttachments: ->
     attachments = @props.message.attachments
     attachments.map (attachment, index) =>
       switch attachment.category
         when 'file'
-          MessageFormFile key: index, attachment: attachment
+          MessageFormFile key: index, attachment: attachment, onClick: @onClick
         when 'image'
-          MessageFormImage key: index, attachment: attachment
+          MessageFormImage key: index, attachment: attachment, onClick: @onClick
         when 'quote'
-          MessageFormQuote key: index, attachment: attachment
+          MessageFormQuote key: index, attachment: attachment, onClick: @onClick
         when 'rtf'
-          MessageFormRTF key:index, attachment: attachment
+          MessageFormRTF key:index, attachment: attachment, onClick: @onClick
 
   render: ->
     div className: 'message',

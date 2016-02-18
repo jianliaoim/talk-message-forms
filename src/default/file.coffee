@@ -5,9 +5,7 @@ filesize = require 'filesize'
 
 position = require '../util/position'
 
-a = React.createFactory 'a'
-div = React.createFactory 'div'
-span = React.createFactory 'span'
+{ div, span, a, i } = React.DOM
 
 T = React.PropTypes
 
@@ -57,7 +55,7 @@ module.exports = React.createClass
     unless @props.attachment.isUploading?
       div className: 'action',
         a href: @props.attachment.data.downloadUrl, onClick: @onDownloadClick,
-          span className: 'ti ti-arrow-down'
+          i className: 'ti ti-arrow-down'
 
   render: ->
     className = cx 'attachment-file', 'is-clickable': not @props.attachment.isUploading?
