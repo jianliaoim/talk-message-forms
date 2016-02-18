@@ -51,7 +51,7 @@ module.exports = React.createClass
     div className: 'picture', style: style
 
   render: ->
-    color = @props.attachment.data.color?.toLowerCase() or 'default'
+    color = @props.attachment.color or 'default'
 
     className = cx 'attachment-quote', "is-#{color}",
       'is-clickable': @props.attachment.data.text?.length
