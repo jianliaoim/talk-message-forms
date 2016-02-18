@@ -25,14 +25,18 @@
 
   .title {
     display: flex;
-    justify-content: space-between;
-    .link {
+    .action {
+      display: flex;
+      align-items: center;
+      height: 24px;
       font-size: 18px;
       color: @iconColor;
       transition: opacity .1s;
+      padding: 0 4px;
+      text-decoration: none;
       &:hover {
         color: @iconColorHover;
-        background-color: @colorGrayBackground;
+        background-color: inherit;
       }
     }
   }
