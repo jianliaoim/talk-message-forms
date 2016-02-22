@@ -20,12 +20,12 @@ module.exports = React.createClass
     lang: 'zh'
 
   onClick: (event) ->
-    if @props.attachment.data.text
+    if @props.attachment.data.redirectUrl
+      event.stopPropagation()
+      window.open @props.attachment.data.redirectUrl, true
+    else if @props.attachment.data.text
       event.stopPropagation()
       @props.onClick?()
-
-  onRedirectClick: (event) ->
-    event.stopPropagation()
 
   renderTitle: ->
     return if not @props.attachment.data.title
@@ -33,15 +33,7 @@ module.exports = React.createClass
       title = if @props.lang is 'zh' then "访问 Teambition 查看更多" else "Check out Teambition for more information"
     else
       title = @props.attachment.data.title
-    div className: 'title',
-      span null, title
-      if @props.attachment.data.redirectUrl
-        a
-          className: 'action'
-          href: @props.attachment.data.redirectUrl
-          target: '_blank'
-          onClick: @onRedirectClick
-          i className: 'ti ti-redirect'
+    div className: 'title', title
 
   renderContent: ->
     return if not @props.attachment.data.text
@@ -59,7 +51,7 @@ module.exports = React.createClass
     color = @props.attachment.color or 'default'
 
     className = cx 'attachment-quote', "is-#{color}",
-      'is-clickable': @props.attachment.data.text
+      'is-clickable': @props.attachment.data.text or @props.attachment.data.redirectUrl
 
     div className: className, onClick: @onClick,
       @renderTitle()
