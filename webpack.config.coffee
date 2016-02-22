@@ -27,11 +27,11 @@ module.exports =
       {test: /\.jsx$/, exclude: /node_modules/, loader: 'babel'}
       {test: /\.less$/, loader: 'style!css?importLoaders=1!autoprefixer?{browsers:["> 1%"]}!less'}
       {test: /\.(png|jpg|gif)$/, loader: 'url', query: {limit: 2048, name: imageName}}
-      {test: /\.woff/, loader: 'url', query: {limit: 100, minetype: 'application/font-woff', name: fontName}}
-      {test: /\.woff2/, loader: 'url', query: {limit: 100, minetype: 'application/font-woff2', name: fontName}}
-      {test: /\.ttf/, loader: 'url', query: {limit: 100, minetype: 'application/octet-stream', name: fontName}}
-      {test: /\.eot/, loader: 'url', query: {limit: 100, name: fontName}}
-      {test: /\.svg/, loader: 'url', query: {limit: 10000, minetype: 'image/svg+xml', name: fontName}}
+      {test: /\.woff(\?\S*)?$/, loader: 'url', query: {limit: 100, minetype: 'application/font-woff', name: fontName}}
+      {test: /\.woff2(\?\S*)?$/, loader: 'url', query: {limit: 100, minetype: 'application/font-woff2', name: fontName}}
+      {test: /\.ttf(\?\S*)?$/, loader: 'url', query: {limit: 100, minetype: 'application/octet-stream', name: fontName}}
+      {test: /\.eot(\?\S*)?$/, loader: 'url', query: {limit: 100, name: fontName}}
+      {test: /\.svg(\?\S*)?$/, loader: 'url', query: {limit: 10000, minetype: 'image/svg+xml', name: fontName}}
     ]
   plugins: [
     new webpack.optimize.CommonsChunkPlugin 'vendor', 'vendor.js'
